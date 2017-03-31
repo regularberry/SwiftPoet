@@ -94,7 +94,7 @@ open class MethodSpec: PoetSpec, MethodSpecProtocol {
             cbBuilder.add(literal: construct)
         }
         cbBuilder.add(literal: name)
-        cbBuilder.add(literal: "(")
+        cbBuilder.add(literal: "(", trimString: true)
         emitter.emit(codeBlock: cbBuilder.build())
 
         var first = true

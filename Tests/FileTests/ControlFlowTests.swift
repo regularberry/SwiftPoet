@@ -151,7 +151,7 @@ class ControlFlowTests: XCTestCase {
 
         let result =
         " {\n" +
-        "    ( key, value ) throws -> [String] in\n" +
+        "    (key, value) throws -> [String] in\n" +
         "        \n" +
         "        let result = [String]()\n" +
         "        if key = key {\n" +
