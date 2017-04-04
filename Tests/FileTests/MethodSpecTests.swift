@@ -27,7 +27,7 @@ class MethodSpecTests: XCTestCase {
 
         let method = mb.build()
 
-        XCTAssertEqual("func test ()", method.toString())
+        XCTAssertEqual("func test()", method.toString())
     }
 
     func testProtocolMethodOneParam() {
@@ -44,7 +44,7 @@ class MethodSpecTests: XCTestCase {
         "/**\n" +
         "    :param:    name\n" +
         "*/\n" +
-        "func test (name : String) -> String"
+        "func test(name: String) -> String"
 
         //        print(result)
         //        print(method.toString())
@@ -75,7 +75,7 @@ class MethodSpecTests: XCTestCase {
         "    :param:    homeOwner\n\n" +
         "    :param:    petName\n" +
         "*/\n" +
-        "func buildPerson (name : String, age : Int, homeOwner : Bool, petName : String?) -> Person"
+        "func buildPerson(name: String, age: Int, homeOwner: Bool, petName: String?) -> Person"
 
 //        print(result)
 //        print(method.toString())
@@ -102,7 +102,7 @@ class MethodSpecTests: XCTestCase {
         "\n" +
         "    :param:    name The name of the test\n" +
         "*/\n" +
-        "func test (name : String) -> String"
+        "func test(name: String) -> String"
 
 //        print(result)
 //        print(method.toString())
@@ -116,7 +116,7 @@ class MethodSpecTests: XCTestCase {
             .build()
 
         let result =
-        "func test () -> String {\n" +
+        "func test() -> String {\n" +
         "}"
 
 //        print(result)
@@ -134,7 +134,7 @@ class MethodSpecTests: XCTestCase {
             .build()
 
         let result =
-        "func test () -> String {\n" +
+        "func test() -> String {\n" +
         "    return \"test\"\n" +
         "}"
 
@@ -161,7 +161,7 @@ class MethodSpecTests: XCTestCase {
         "/**\n" +
         "    :param:    name\n" +
         "*/\n" +
-        "func test (name : String) -> String {\n" +
+        "func test(name: String) -> String {\n" +
         "    return name\n" +
         "}"
 
@@ -188,7 +188,7 @@ class MethodSpecTests: XCTestCase {
         "/**\n" +
             "    :param:    name\n" +
             "*/\n" +
-            "func test (name : String) -> String {\n" +
+            "func test(name: String) -> String {\n" +
             "    return name\n" +
         "}"
 
@@ -203,7 +203,7 @@ class MethodSpecTests: XCTestCase {
             .build()
         
         let result =
-        "init? () {\n" +
+        "init?() {\n" +
         "}"
         
         //        print(result)

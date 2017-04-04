@@ -35,7 +35,7 @@ open class ParameterSpec: PoetSpec, ParameterSpecProtocol {
             cbBuilder.add(literal: construct)
         }
         cbBuilder.add(literal: name)
-        cbBuilder.add(literal: ":")
+        cbBuilder.add(literal: ":", trimString: true)
         cbBuilder.add(literal: type)
         writer.emit(codeBlock: cbBuilder.build())
         return writer
