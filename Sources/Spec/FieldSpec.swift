@@ -97,7 +97,7 @@ open class FieldSpec: PoetSpec, FieldSpecType {
             .add(literal: cleanName)
 
         if let type = type {
-            cbBuilder.add(literal: ":")
+            cbBuilder.add(literal: ":", trimString: true)
             cbBuilder.add(literal: type)
         }
 
@@ -110,7 +110,7 @@ open class FieldSpec: PoetSpec, FieldSpecType {
                 cbBuilder.add(codeBlock: initializer)
                 cbBuilder.add(type: .endStatement)
             } else if construct == .typeAlias && parentType != nil && parentType! == .protocol {
-                cbBuilder.add(literal: ":")
+                cbBuilder.add(literal: ":", trimString: true)
                 cbBuilder.add(objects: initializer.emittableObjects)
             } else if construct == .typeAlias {
                 cbBuilder.add(literal: "=")
@@ -129,7 +129,7 @@ open class FieldSpec: PoetSpec, FieldSpecType {
         let cbBuilder = CodeBlock.builder()
             .add(literal: construct)
             .add(literal: cleanName)
-            .add(literal: ":")
+            .add(literal: ":", trimString: true)
             .add(literal: type!)
 
         if construct == .mutableField {

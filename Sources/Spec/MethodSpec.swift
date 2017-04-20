@@ -95,22 +95,16 @@ open class MethodSpec: PoetSpec, MethodSpecProtocol {
         }
         cbBuilder.add(literal: name)
         cbBuilder.add(literal: "(", trimString: true)
-        emitter.emit(codeBlock: cbBuilder.build())
-
-        var first = true
-        parameters.forEach { p in
-            if !first {
-                emitter.emit(type: .literal, data: ", ")
-            }
-            p.emit(to: emitter)
-            first = false
-        }
-
-        _ = emitter.emit(type: .literal, data: ")")
+        cbBuilder.add(literal: parameters.map {
+            $0.toString()
+            }.joined(separator: ", "), trimString: true)
+        cbBuilder.add(literal: ")", trimString: true)
 
         if throwsError {
-            emitter.emit(type: .literal, data: " throws")
+            cbBuilder.add(literal: "throws")
         }
+
+        emitter.emit(codeBlock: cbBuilder.build())
 
         if let returnType = returnType {
             let returnBuilder = CodeBlock.builder()
