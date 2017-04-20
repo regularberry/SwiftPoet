@@ -2060,161 +2060,161 @@
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 124,
+      "line": 118,
       "symbol": "MethodSpecBuilder",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 126,
+      "line": 120,
       "symbol": "MethodSpecBuilder.defaultConstruct",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 128,
+      "line": 122,
       "symbol": "MethodSpecBuilder.typeVariables",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 129,
+      "line": 123,
       "symbol": "MethodSpecBuilder.throwsError",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 130,
+      "line": 124,
       "symbol": "MethodSpecBuilder.returnType",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 131,
+      "line": 125,
       "symbol": "MethodSpecBuilder.parameters",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 132,
+      "line": 126,
       "symbol": "MethodSpecBuilder.codeBlock",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 133,
+      "line": 127,
       "symbol": "MethodSpecBuilder.parentType",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 141,
+      "line": 135,
       "symbol": "MethodSpecBuilder.build()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 150,
+      "line": 144,
       "symbol": "MethodSpecBuilder.add(typeVariable:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 156,
+      "line": 150,
       "symbol": "MethodSpecBuilder.add(typeVariables:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 162,
+      "line": 156,
       "symbol": "MethodSpecBuilder.add(returnType:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 168,
+      "line": 162,
       "symbol": "MethodSpecBuilder.add(parameter:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 174,
+      "line": 168,
       "symbol": "MethodSpecBuilder.add(parameters:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 180,
+      "line": 174,
       "symbol": "MethodSpecBuilder.add(codeBlock:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 186,
+      "line": 180,
       "symbol": "MethodSpecBuilder.add(parentType:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 192,
+      "line": 186,
       "symbol": "MethodSpecBuilder.add(throwable:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 202,
+      "line": 196,
       "symbol": "MethodSpecBuilder.add(modifier:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 208,
+      "line": 202,
       "symbol": "MethodSpecBuilder.add(modifiers:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 214,
+      "line": 208,
       "symbol": "MethodSpecBuilder.add(description:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 220,
+      "line": 214,
       "symbol": "MethodSpecBuilder.add(framework:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 226,
+      "line": 220,
       "symbol": "MethodSpecBuilder.add(import:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kyledorman/web/SwiftPoet/Sources/Spec/MethodSpec.swift",
-      "line": 232,
+      "line": 226,
       "symbol": "MethodSpecBuilder.add(imports:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
