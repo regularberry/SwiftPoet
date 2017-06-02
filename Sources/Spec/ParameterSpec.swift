@@ -39,8 +39,7 @@ open class ParameterSpec: PoetSpec, ParameterSpecProtocol {
             cbBuilder.add(literal: construct)
         }
         if let label = label {
-            cbBuilder.add(literal: label)
-            cbBuilder.add(literal: " ")
+            cbBuilder.add(literal: label, trimString: true)
         }
         cbBuilder.add(literal: name)
         cbBuilder.add(literal: ":", trimString: true)
