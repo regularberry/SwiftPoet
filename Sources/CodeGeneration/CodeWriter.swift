@@ -255,6 +255,9 @@ extension CodeWriter {
                 case .newLine:
                     self.emitNewLine()
 
+                case .nextLine:
+                    self.emitNewLine(preservingIndentation: true)
+
                 case .increaseIndentation:
                     self.indent()
 
@@ -348,10 +351,13 @@ extension CodeWriter {
     }
 
     @discardableResult
-    public func emitNewLine()
+    public func emitNewLine(preservingIndentation: Bool = false)
         -> CodeWriter
     {
         _out.append("\n")
+        if preservingIndentation {
+            emitIndentation()
+        }
         return self
     }
 
