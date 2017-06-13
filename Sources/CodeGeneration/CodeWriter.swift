@@ -76,7 +76,7 @@ extension CodeWriter {
     //  Created by SwiftPoet on MM/DD/YYYY
     //
     //
-    public func emitFileHeader(fileName: String?, framework: String?, specs: [PoetSpecType]) {
+    public func emitFileHeader(fileName: String?, framework: String?, generatorInfo: String?, specs: [PoetSpecType]) {
         let specStr: [String] = specs.map { spec in
             return headerLine(withString: "\(spec.construct.stringValue) \(spec.name)")
         }
@@ -88,6 +88,11 @@ extension CodeWriter {
         header.append(headerLine())
         if let framework = framework {
             header.append(headerLine(withString: framework))
+            header.append(headerLine())
+        }
+
+        if let generatorInfo = generatorInfo {
+            header.append(headerLine(withString: generatorInfo))
             header.append(headerLine())
         }
 

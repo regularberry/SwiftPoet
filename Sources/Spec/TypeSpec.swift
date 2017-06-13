@@ -27,7 +27,7 @@ open class TypeSpec: PoetSpec, TypeSpecProtocol {
         superType = builder.superType
         protocols = builder.protocols
 
-        super.init(name: builder.name, construct: builder.construct, modifiers: builder.modifiers, description: builder.description, framework: builder.framework, imports: builder.imports)
+        super.init(name: builder.name, construct: builder.construct, modifiers: builder.modifiers, description: builder.description, generatorInfo: builder.generatorInfo, framework: builder.framework, imports: builder.imports)
     }
 
     open override func collectImports() -> Set<String> {
