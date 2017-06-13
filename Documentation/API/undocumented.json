@@ -206,83 +206,83 @@
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/CodeGeneration/CodeWriter.swift",
       "line": 79,
-      "symbol": "CodeWriter.emitFileHeader(fileName:framework:specs:)",
+      "symbol": "CodeWriter.emitFileHeader(fileName:framework:generatorInfo:specs:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/CodeGeneration/CodeWriter.swift",
-      "line": 127,
+      "line": 132,
       "symbol": "CodeWriter.emit(imports:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/CodeGeneration/CodeWriter.swift",
-      "line": 140,
+      "line": 145,
       "symbol": "CodeWriter.emit(documentationFor:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/CodeGeneration/CodeWriter.swift",
-      "line": 159,
+      "line": 164,
       "symbol": "CodeWriter.emit(documentationFor:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/CodeGeneration/CodeWriter.swift",
-      "line": 170,
+      "line": 175,
       "symbol": "CodeWriter.emit(documentationFor:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/CodeGeneration/CodeWriter.swift",
-      "line": 212,
+      "line": 217,
       "symbol": "CodeWriter.emit(modifiers:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/CodeGeneration/CodeWriter.swift",
-      "line": 230,
+      "line": 235,
       "symbol": "CodeWriter.emit(codeBlock:withIndentation:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/CodeGeneration/CodeWriter.swift",
-      "line": 281,
+      "line": 286,
       "symbol": "CodeWriter.emit(type:data:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/CodeGeneration/CodeWriter.swift",
-      "line": 288,
+      "line": 293,
       "symbol": "CodeWriter.emit(literal:withIndentation:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/CodeGeneration/CodeWriter.swift",
-      "line": 319,
+      "line": 324,
       "symbol": "CodeWriter.emit(superType:protocols:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/CodeGeneration/CodeWriter.swift",
-      "line": 354,
+      "line": 359,
       "symbol": "CodeWriter.emitNewLine(preservingIndentation:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/CodeGeneration/CodeWriter.swift",
-      "line": 370,
+      "line": 375,
       "symbol": "CodeWriter.emit(specs:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1382,20 +1382,27 @@
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ClassSpec.swift",
       "line": 105,
-      "symbol": "ClassSpecBuilder.add(framework:)",
+      "symbol": "ClassSpecBuilder.add(generatorInfo:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ClassSpec.swift",
       "line": 111,
-      "symbol": "ClassSpecBuilder.add(import:)",
+      "symbol": "ClassSpecBuilder.add(framework:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ClassSpec.swift",
       "line": 117,
+      "symbol": "ClassSpecBuilder.add(import:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ClassSpec.swift",
+      "line": 123,
       "symbol": "ClassSpecBuilder.add(imports:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1536,20 +1543,27 @@
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/EnumSpec.swift",
       "line": 105,
-      "symbol": "EnumSpecBuilder.add(framework:)",
+      "symbol": "EnumSpecBuilder.add(generatorInfo:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/EnumSpec.swift",
       "line": 111,
-      "symbol": "EnumSpecBuilder.add(import:)",
+      "symbol": "EnumSpecBuilder.add(framework:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/EnumSpec.swift",
       "line": 117,
+      "symbol": "EnumSpecBuilder.add(import:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/EnumSpec.swift",
+      "line": 123,
       "symbol": "EnumSpecBuilder.add(imports:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1697,20 +1711,27 @@
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ExtensionSpec.swift",
       "line": 105,
-      "symbol": "ExtensionSpecBuilder.add(framework:)",
+      "symbol": "ExtensionSpecBuilder.add(generatorInfo:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ExtensionSpec.swift",
       "line": 111,
-      "symbol": "ExtensionSpecBuilder.add(import:)",
+      "symbol": "ExtensionSpecBuilder.add(framework:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ExtensionSpec.swift",
       "line": 117,
+      "symbol": "ExtensionSpecBuilder.add(import:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ExtensionSpec.swift",
+      "line": 123,
       "symbol": "ExtensionSpecBuilder.add(imports:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1808,126 +1829,133 @@
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 34,
+      "line": 35,
       "symbol": "FieldSpec.builder(for:type:construct:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 38,
+      "line": 39,
       "symbol": "FieldSpec.collectImports()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 46,
+      "line": 47,
       "symbol": "FieldSpec.emit(to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 145,
+      "line": 146,
       "symbol": "FieldSpecBuilder",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 150,
+      "line": 151,
       "symbol": "FieldSpecBuilder.type",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 151,
+      "line": 152,
       "symbol": "FieldSpecBuilder.initializer",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 152,
+      "line": 153,
       "symbol": "FieldSpecBuilder.parentType",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 153,
+      "line": 154,
       "symbol": "FieldSpecBuilder.associatedValues",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 161,
+      "line": 162,
       "symbol": "FieldSpecBuilder.build()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 169,
+      "line": 170,
       "symbol": "FieldSpecBuilder.add(initializer:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 175,
+      "line": 176,
       "symbol": "FieldSpecBuilder.add(parentType:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 185,
+      "line": 186,
       "symbol": "FieldSpecBuilder.add(modifier:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 191,
+      "line": 192,
       "symbol": "FieldSpecBuilder.add(modifiers:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 197,
+      "line": 198,
       "symbol": "FieldSpecBuilder.add(description:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 203,
+      "line": 204,
+      "symbol": "FieldSpecBuilder.add(generatorInfo:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
+      "line": 210,
       "symbol": "FieldSpecBuilder.add(framework:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 209,
+      "line": 216,
       "symbol": "FieldSpecBuilder.add(import:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 215,
+      "line": 222,
       "symbol": "FieldSpecBuilder.add(imports:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/FieldSpec.swift",
-      "line": 224,
+      "line": 231,
       "symbol": "FieldSpecBuilder.add(associatedValues:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -2208,20 +2236,27 @@
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/MethodSpec.swift",
       "line": 214,
-      "symbol": "MethodSpecBuilder.add(framework:)",
+      "symbol": "MethodSpecBuilder.add(generatorInfo:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/MethodSpec.swift",
       "line": 220,
-      "symbol": "MethodSpecBuilder.add(import:)",
+      "symbol": "MethodSpecBuilder.add(framework:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/MethodSpec.swift",
       "line": 226,
+      "symbol": "MethodSpecBuilder.add(import:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/MethodSpec.swift",
+      "line": 232,
       "symbol": "MethodSpecBuilder.add(imports:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -2355,20 +2390,27 @@
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ParameterSpec.swift",
       "line": 94,
-      "symbol": "ParameterSpecBuilder.add(framework:)",
+      "symbol": "ParameterSpecBuilder.add(generatorInfo:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ParameterSpec.swift",
       "line": 100,
-      "symbol": "ParameterSpecBuilder.add(import:)",
+      "symbol": "ParameterSpecBuilder.add(framework:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ParameterSpec.swift",
       "line": 106,
+      "symbol": "ParameterSpecBuilder.add(import:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ParameterSpec.swift",
+      "line": 112,
       "symbol": "ParameterSpecBuilder.add(imports:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -2418,160 +2460,181 @@
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
       "line": 17,
-      "symbol": "PoetSpecType.framework",
+      "symbol": "PoetSpecType.generatorInfo",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
       "line": 18,
+      "symbol": "PoetSpecType.framework",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
+      "line": 19,
       "symbol": "PoetSpecType.imports",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 21,
+      "line": 22,
       "symbol": "PoetSpec",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 22,
+      "line": 23,
       "symbol": "PoetSpec.name",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 23,
+      "line": 24,
       "symbol": "PoetSpec.construct",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 24,
+      "line": 25,
       "symbol": "PoetSpec.modifiers",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 25,
+      "line": 26,
       "symbol": "PoetSpec.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 26,
+      "line": 27,
+      "symbol": "PoetSpec.generatorInfo",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
+      "line": 28,
       "symbol": "PoetSpec.framework",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 27,
+      "line": 29,
       "symbol": "PoetSpec.imports",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 29,
-      "symbol": "PoetSpec.init(name:construct:modifiers:description:framework:imports:)",
+      "line": 31,
+      "symbol": "PoetSpec.init(name:construct:modifiers:description:generatorInfo:framework:imports:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 38,
+      "line": 41,
       "symbol": "PoetSpec.emit(to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 42,
+      "line": 45,
       "symbol": "PoetSpec.collectImports()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 46,
+      "line": 49,
       "symbol": "PoetSpec.toFile()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 50,
+      "line": 53,
       "symbol": "PoetSpec.toString()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 57,
+      "line": 60,
       "symbol": "==(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 67,
+      "line": 70,
       "symbol": "PoetSpecBuilder",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 68,
+      "line": 71,
       "symbol": "PoetSpecBuilder.name",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 69,
+      "line": 72,
       "symbol": "PoetSpecBuilder.construct",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 70,
+      "line": 73,
       "symbol": "PoetSpecBuilder.modifiers",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 71,
+      "line": 74,
       "symbol": "PoetSpecBuilder.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 72,
+      "line": 75,
+      "symbol": "PoetSpecBuilder.generatorInfo",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
+      "line": 76,
       "symbol": "PoetSpecBuilder.framework",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 73,
+      "line": 77,
       "symbol": "PoetSpecBuilder.imports",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/PoetSpec.swift",
-      "line": 75,
+      "line": 79,
       "symbol": "PoetSpecBuilder.init(name:construct:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -2719,20 +2782,27 @@
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ProtocolSpec.swift",
       "line": 105,
-      "symbol": "ProtocolSpecBuilder.add(framework:)",
+      "symbol": "ProtocolSpecBuilder.add(generatorInfo:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ProtocolSpec.swift",
       "line": 111,
-      "symbol": "ProtocolSpecBuilder.add(import:)",
+      "symbol": "ProtocolSpecBuilder.add(framework:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ProtocolSpec.swift",
       "line": 117,
+      "symbol": "ProtocolSpecBuilder.add(import:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/ProtocolSpec.swift",
+      "line": 123,
       "symbol": "ProtocolSpecBuilder.add(imports:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -2887,20 +2957,27 @@
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/StructSpec.swift",
       "line": 142,
-      "symbol": "StructSpecBuilder.add(framework:)",
+      "symbol": "StructSpecBuilder.add(generatorInfo:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/StructSpec.swift",
       "line": 148,
-      "symbol": "StructSpecBuilder.add(import:)",
+      "symbol": "StructSpecBuilder.add(framework:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/StructSpec.swift",
       "line": 154,
+      "symbol": "StructSpecBuilder.add(import:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Spec/StructSpec.swift",
+      "line": 160,
       "symbol": "StructSpecBuilder.add(imports:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -3118,41 +3195,48 @@
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Util/PoetFile.swift",
       "line": 24,
+      "symbol": "PoetFile.generatorInfo",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Util/PoetFile.swift",
+      "line": 26,
       "symbol": "PoetFile.fileContents",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Util/PoetFile.swift",
-      "line": 28,
+      "line": 30,
       "symbol": "PoetFile.imports",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Util/PoetFile.swift",
-      "line": 34,
-      "symbol": "PoetFile.init(list:framework:)",
+      "line": 36,
+      "symbol": "PoetFile.init(list:framework:generatorInfo:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Util/PoetFile.swift",
-      "line": 40,
-      "symbol": "PoetFile.init(spec:framework:)",
+      "line": 43,
+      "symbol": "PoetFile.init(spec:framework:generatorInfo:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Util/PoetFile.swift",
-      "line": 44,
+      "line": 47,
       "symbol": "PoetFile.append(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/emaloney/Documents/Code/managed/ApidocSwiftGenerator/Carthage/Checkouts/SwiftPoet/Sources/Util/PoetFile.swift",
-      "line": 51,
+      "line": 54,
       "symbol": "PoetFile.collectImports()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
