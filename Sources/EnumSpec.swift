@@ -102,6 +102,12 @@ extension EnumSpecBuilder {
     }
 
     @discardableResult
+    public func add(generatorInfo toAdd: String?) -> Self {
+        mutatingAdd(generatorInfo: toAdd)
+        return self
+    }
+
+    @discardableResult
     public func add(framework toAdd: String?) -> Self {
         mutatingAdd(framework: toAdd)
         return self

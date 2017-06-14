@@ -14,7 +14,8 @@ public enum EmitType {
     case decreaseIndentation
     case beginStatement
     case endStatement
-    case newLine
+    case newLine    // uses a simple newline character ("\n") to advance to next line at leftmost column
+    case nextLine   // advances to next line at same indentation as the current line
     case codeLine
     case emitter
 }

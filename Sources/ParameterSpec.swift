@@ -7,21 +7,25 @@
 //
 
 import Foundation
+
 public protocol ParameterSpecProtocol {
+    var label: String? { get }
     var type: TypeName { get }
 }
 
 open class ParameterSpec: PoetSpec, ParameterSpecProtocol {
+    open let label: String?
     open let type: TypeName
 
     fileprivate init(builder: ParameterSpecBuilder) {
+        self.label = builder.label
         self.type = builder.type
         super.init(name: builder.name, construct: builder.construct, modifiers: builder.modifiers,
-                   description: builder.description, framework: builder.framework, imports: builder.imports)
+                   description: builder.description, generatorInfo: builder.generatorInfo, framework: builder.framework, imports: builder.imports)
     }
 
-    open static func builder(for name: String, type: TypeName, construct: Construct? = nil) -> ParameterSpecBuilder {
-        return ParameterSpecBuilder(name: name, type: type, construct: construct)
+    open static func builder(for name: String, label: String? = nil, type: TypeName, construct: Construct? = nil) -> ParameterSpecBuilder {
+        return ParameterSpecBuilder(name: name, label: label, type: type, construct: construct)
     }
 
     open override func collectImports() -> Set<String> {
@@ -33,6 +37,9 @@ open class ParameterSpec: PoetSpec, ParameterSpecProtocol {
         let cbBuilder = CodeBlock.builder()
         if (construct == .mutableParam) {
             cbBuilder.add(literal: construct)
+        }
+        if let label = label {
+            cbBuilder.add(literal: label, trimString: true)
         }
         cbBuilder.add(literal: name)
         cbBuilder.add(literal: ":", trimString: true)
@@ -46,9 +53,11 @@ open class ParameterSpecBuilder: PoetSpecBuilder, Builder, ParameterSpecProtocol
     public typealias Result = ParameterSpec
     open static let defaultConstruct: Construct = .param
 
+    open let label: String?
     open let type: TypeName
 
-    fileprivate init(name: String, type: TypeName, construct: Construct? = nil) {
+    fileprivate init(name: String, label: String? = nil, type: TypeName, construct: Construct? = nil) {
+        self.label = label
         self.type = type
         let requiredConstruct = construct == nil || construct! != .mutableParam ? ParameterSpecBuilder.defaultConstruct : construct!
         super.init(name: name.cleaned(.paramName), construct: requiredConstruct)
@@ -78,6 +87,12 @@ extension ParameterSpecBuilder {
     @discardableResult
     public func add(description toAdd: String?) -> Self {
         mutatingAdd(description: toAdd)
+        return self
+    }
+
+    @discardableResult
+    public func add(generatorInfo toAdd: String?) -> Self {
+        mutatingAdd(generatorInfo: toAdd)
         return self
     }
 

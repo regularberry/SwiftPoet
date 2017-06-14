@@ -21,6 +21,8 @@ public protocol PoetFileProtocol {
 open class PoetFile: PoetFileProtocol, Importable {
     open fileprivate(set) var fileName: String?
     open fileprivate(set) var specList: [PoetSpec]
+    open fileprivate(set) var generatorInfo: String?
+
     open var fileContents: String {
         return toFile()
     }
@@ -31,14 +33,15 @@ open class PoetFile: PoetFileProtocol, Importable {
 
     fileprivate var framework: String?
 
-    public init(list: [PoetSpec], framework: String? = nil) {
+    public init(list: [PoetSpec], framework: String? = nil, generatorInfo: String?) {
         self.specList = list
         self.fileName = list.first?.name
         self.framework = framework
+        self.generatorInfo = generatorInfo
     }
 
-    public convenience init(spec: PoetSpec, framework: String? = nil) {
-        self.init(list: [spec], framework: framework)
+    public convenience init(spec: PoetSpec, framework: String? = nil, generatorInfo: String?) {
+        self.init(list: [spec], framework: framework, generatorInfo: generatorInfo)
     }
 
     open func append(_ item: PoetSpec) {
@@ -56,7 +59,7 @@ open class PoetFile: PoetFileProtocol, Importable {
 
     fileprivate func toFile() -> String {
         let codeWriter = CodeWriter()
-        codeWriter.emitFileHeader(fileName: fileName, framework: framework, specs: specList)
+        codeWriter.emitFileHeader(fileName: fileName, framework: framework, generatorInfo: generatorInfo, specs: specList)
         codeWriter.emit(imports: imports)
         codeWriter.emit(specs: specList)
         return codeWriter.out

@@ -34,7 +34,7 @@ open class MethodSpec: PoetSpec, MethodSpecProtocol {
         self.parentType = builder.parentType
 
         super.init(name: builder.name, construct: builder.construct, modifiers: builder.modifiers,
-                   description: builder.description, framework: builder.framework, imports: builder.imports)
+                   description: builder.description, generatorInfo: builder.generatorInfo, framework: builder.framework, imports: builder.imports)
     }
 
     open static func builder(for name: String) -> MethodSpecBuilder {
@@ -207,6 +207,12 @@ extension MethodSpecBuilder {
     @discardableResult
     public func add(description toAdd: String?) -> Self {
         mutatingAdd(description: toAdd)
+        return self
+    }
+
+    @discardableResult
+    public func add(generatorInfo toAdd: String?) -> Self {
+        mutatingAdd(generatorInfo: toAdd)
         return self
     }
 

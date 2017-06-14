@@ -14,6 +14,7 @@ public protocol PoetSpecType {
     var construct: Construct { get }
     var modifiers: Set<Modifier> { get }
     var description: String? { get }
+    var generatorInfo: String? { get }
     var framework: String? { get }
     var imports: Set<String> { get }
 }
@@ -23,14 +24,16 @@ open class PoetSpec: PoetSpecType, Emitter, Importable {
     open let construct: Construct
     open let modifiers: Set<Modifier>
     open let description: String?
+    open let generatorInfo: String?
     open let framework: String?
     open let imports: Set<String>
 
-    public init(name: String, construct: Construct, modifiers: Set<Modifier>, description: String?, framework: String?, imports: Set<String>) {
+    public init(name: String, construct: Construct, modifiers: Set<Modifier>, description: String?, generatorInfo: String?, framework: String?, imports: Set<String>) {
         self.name = name
         self.construct = construct
         self.modifiers = modifiers
         self.description = description
+        self.generatorInfo = generatorInfo
         self.framework = framework
         self.imports = imports
     }
@@ -44,7 +47,7 @@ open class PoetSpec: PoetSpecType, Emitter, Importable {
     }
 
     open func toFile() -> PoetFile {
-        return PoetFile(spec: self, framework: framework)
+        return PoetFile(spec: self, framework: framework, generatorInfo: generatorInfo)
     }
 
     open func toString() -> String {
@@ -69,6 +72,7 @@ open class PoetSpecBuilder: PoetSpecType {
     open let construct: Construct
     open fileprivate(set) var modifiers = Set<Modifier>()
     open fileprivate(set) var description: String? = nil
+    open fileprivate(set) var generatorInfo: String? = nil
     open fileprivate(set) var framework: String? = nil
     open fileprivate(set) var imports = Set<String>()
 
@@ -87,6 +91,10 @@ open class PoetSpecBuilder: PoetSpecType {
 
     internal func mutatingAdd(description toAdd: String?) {
         self.description = toAdd
+    }
+
+    internal func mutatingAdd(generatorInfo toAdd: String?) {
+        self.generatorInfo = toAdd
     }
 
     internal func mutatingAdd(framework toAdd: String?) {

@@ -28,7 +28,8 @@ open class FieldSpec: PoetSpec, FieldSpecType {
         self.associatedValues = builder.associatedValues
         super.init(name: builder.name, construct: builder.construct,
                    modifiers: builder.modifiers, description: builder.description,
-                   framework: builder.framework, imports: builder.imports)
+                   generatorInfo: builder.generatorInfo, framework: builder.framework,
+                   imports: builder.imports)
     }
 
     open static func builder(for name: String, type: TypeName? = nil, construct: Construct? = nil) -> FieldSpecBuilder {
@@ -196,6 +197,12 @@ extension FieldSpecBuilder {
     @discardableResult
     public func add(description toAdd: String?) -> Self {
         mutatingAdd(description: toAdd)
+        return self
+    }
+
+    @discardableResult
+    public func add(generatorInfo toAdd: String?) -> Self {
+        mutatingAdd(generatorInfo: toAdd)
         return self
     }
 
