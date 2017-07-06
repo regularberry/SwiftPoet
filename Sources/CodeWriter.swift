@@ -85,11 +85,10 @@ extension CodeWriter {
         if let fileName = fileName {
             header.append(headerLine(withString: "\(fileName).swift"))
         }
-        header.append(headerLine())
         if let framework = framework {
-            header.append(headerLine(withString: framework))
-            header.append(headerLine())
+            header.append(headerLine(withString: framework.cleaned(.typeName)))
         }
+        header.append(headerLine())
 
         if let generatorInfo = generatorInfo {
             header.append(headerLine(withString: generatorInfo))
@@ -103,7 +102,6 @@ extension CodeWriter {
         }
 
         header.append(headerLine(withString: generatedByAt()))
-        header.append(headerLine())
         header.append(headerLine())
         
         _out.append(contentsOf: header.joined(separator: "\n").characters)
