@@ -67,7 +67,6 @@
 		3B9059031DAECB5200B4EEC0 /* SwiftPoet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftPoet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B90590C1DAECB5200B4EEC0 /* SwiftPoetUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftPoetUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9059251DAECB9E00B4EEC0 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		3B9059261DAECB9E00B4EEC0 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
 		3B9059271DAECB9E00B4EEC0 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		3B9059281DAECB9E00B4EEC0 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
@@ -100,6 +99,7 @@
 		3BBB84581EF19A1300CB2BD5 /* PoetUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PoetUtil.swift; path = Sources/PoetUtil.swift; sourceTree = SOURCE_ROOT; };
 		3BBB84591EF19A1300CB2BD5 /* ReservedWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservedWords.swift; path = Sources/ReservedWords.swift; sourceTree = SOURCE_ROOT; };
 		3BBB845A1EF19A1300CB2BD5 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = Sources/StringExtension.swift; sourceTree = SOURCE_ROOT; };
+		3BDB181E1F158A6D00803117 /* Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Target.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,9 +259,9 @@
 			isa = PBXGroup;
 			children = (
 				3B9059251DAECB9E00B4EEC0 /* Debug.xcconfig */,
-				3B9059261DAECB9E00B4EEC0 /* Framework.xcconfig */,
 				3B9059271DAECB9E00B4EEC0 /* Project.xcconfig */,
 				3B9059281DAECB9E00B4EEC0 /* Release.xcconfig */,
+				3BDB181E1F158A6D00803117 /* Target.xcconfig */,
 				3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */,
 			);
 			path = config;
@@ -531,7 +531,7 @@
 		};
 		3B9059181DAECB5200B4EEC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B9059261DAECB9E00B4EEC0 /* Framework.xcconfig */;
+			baseConfigurationReference = 3B9059251DAECB9E00B4EEC0 /* Debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -545,7 +545,7 @@
 		};
 		3B9059191DAECB5200B4EEC0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B9059261DAECB9E00B4EEC0 /* Framework.xcconfig */;
+			baseConfigurationReference = 3B9059281DAECB9E00B4EEC0 /* Release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
