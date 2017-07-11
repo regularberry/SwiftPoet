@@ -9,43 +9,42 @@
 import Foundation
 
 public enum ControlFlow: String {
-    case Guard = "guard"
-//    case GuardWhere
-    case If = "if"
-    case ElseIf = "else if"
-    case Else = "else"
-    case While = "while"
-    case RepeatWhile = "repeat"
-    case ForIn = "in"
-    case For = "for"
-    case Switch = "switch"
+    case guardStatement = "guard"
+    case ifStatement = "if"
+    case elseIfClause = "else if"
+    case elseClause = "else"
+    case whileStatement = "while"
+    case repeatWhileStatement = "repeat"
+    case forInClause = "in"
+    case forStatement = "for"
+    case switchStatement = "switch"
 
-    public static var guardControlFlow: (ComparisonList?, () -> CodeBlock) -> CodeBlock = ControlFlow.fnGenerator(.Guard)
+    public static var guardControlFlow: (ComparisonList?, () -> CodeBlock) -> CodeBlock = ControlFlow.fnGenerator(.guardStatement)
 
-    public static var ifControlFlow: (ComparisonList?, () -> CodeBlock) -> CodeBlock = ControlFlow.fnGenerator(.If)
+    public static var ifControlFlow: (ComparisonList?, () -> CodeBlock) -> CodeBlock = ControlFlow.fnGenerator(.ifStatement)
 
-    public static var elseIfControlFlow: (ComparisonList?, () -> CodeBlock) -> CodeBlock = ControlFlow.fnGenerator(.ElseIf)
+    public static var elseIfControlFlow: (ComparisonList?, () -> CodeBlock) -> CodeBlock = ControlFlow.fnGenerator(.elseIfClause)
 
-    public static var elseControlFlow: (ComparisonList?, () -> CodeBlock) -> CodeBlock = ControlFlow.fnGenerator(.Else)
+    public static var elseControlFlow: (ComparisonList?, () -> CodeBlock) -> CodeBlock = ControlFlow.fnGenerator(.elseClause)
 
-    public static var whileControlFlow: (ComparisonList?, () -> CodeBlock) -> CodeBlock = ControlFlow.fnGenerator(.While)
+    public static var whileControlFlow: (ComparisonList?, () -> CodeBlock) -> CodeBlock = ControlFlow.fnGenerator(.whileStatement)
 
     public static func repeatWhileControlFlow(_ comparisonList: ComparisonList, bodyFn: () -> CodeBlock) -> CodeBlock {
         return CodeBlock.builder()
-            .add(literal: ControlFlow.RepeatWhile.rawValue)
+            .add(literal: ControlFlow.repeatWhileStatement.rawValue)
             .add(type: .beginStatement)
             .add(codeBlock: bodyFn())
             .add(type: .endStatement)
-            .add(literal: ControlFlow.While.rawValue)
+            .add(literal: ControlFlow.whileStatement.rawValue)
             .add(type: .emitter, data: comparisonList)
             .build()
     }
 
     public static func forInControlFlow(_ iterator: Literal, iterable: Literal, bodyFn: () -> CodeBlock) -> CodeBlock {
         return CodeBlock.builder()
-            .add(literal: ControlFlow.For.rawValue)
+            .add(literal: ControlFlow.forStatement.rawValue)
             .add(literal: iterator)
-            .add(literal: ControlFlow.ForIn.rawValue)
+            .add(literal: ControlFlow.forInClause.rawValue)
             .add(literal: iterable)
             .add(type: .beginStatement)
             .add(codeBlock: bodyFn())
@@ -71,7 +70,7 @@ public enum ControlFlow: String {
         } else {
             closureBlock.add(literal: "Void")
         }
-        closureBlock.add(literal: ControlFlow.ForIn.rawValue)
+        closureBlock.add(literal: ControlFlow.forInClause.rawValue)
 
         closureBlock.add(type: .increaseIndentation)
         closureBlock.add(codeBlock: bodyFn())
@@ -105,7 +104,7 @@ public enum ControlFlow: String {
 
     public static func switchControlFlow(_ switchValue: String, cases: [(String, CodeBlock)], defaultCase: CodeBlock? = nil) -> CodeBlock {
         let cb = CodeBlock.builder()
-        cb.add(literal: ControlFlow.Switch.rawValue)
+        cb.add(literal: ControlFlow.switchStatement.rawValue)
         cb.add(literal: switchValue)
         cb.add(type: .beginStatement)
 
@@ -149,11 +148,11 @@ public enum ControlFlow: String {
             let cb = CodeBlock.builder()
                 .add(literal: type.rawValue)
 
-            if type != .Else && comparisonList != nil {
+            if type != .elseClause && comparisonList != nil {
                 cb.add(type: .emitter, data: comparisonList!)
             }
 
-            if type == .Guard {
+            if type == .guardStatement {
                 cb.add(literal: "else")
             }
 
