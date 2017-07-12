@@ -44,12 +44,12 @@ Within to your project’s root directory, Carthage-based projects will store a 
 To integrate SwiftPoet in your workspace, you would start by adding the following line to the `Cartfile`:
 
 ```
-github "gilt/SwiftPoet" ~> 0.6.0
+github "gilt/SwiftPoet" ~> 0.9.0
 ```
 
-This specifies that Carthage use the latest version of SwiftPoet that is API-compatible with 0.6, i.e. any 0.6.*x* version.
+This specifies that Carthage use the latest version of SwiftPoet that is API-compatible with 0.9.0, i.e. any 0.9.*x* version.
 
-**Note:** Be sure to check the [latest releases](https://github.com/gilt/SwiftPoet/releases); there may be a newer version than 0.6 that is no longer API-compatible.
+**Note:** Be sure to check the [latest releases](https://github.com/gilt/SwiftPoet/releases); there may be a newer version than 0.9.0 that is no longer API-compatible.
 
 ### 2. Download SwiftPoet using Carthage
 

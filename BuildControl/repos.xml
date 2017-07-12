@@ -91,8 +91,8 @@
 	<Var name="platform:minimum:tvOS" type="dynamic" expression="^if($project:platform:versions[minimum][tvOS]|$project:platform:versions[minimum][tvOS]|$versions[$repo:branch:settings][minimum][tvOS])"/>
 	<Var name="platform:minimum:watchOS" type="dynamic" expression="^if($project:platform:versions[minimum][watchOS]|$project:platform:versions[minimum][watchOS]|$versions[$repo:branch:settings][minimum][watchOS])"/>
 
-	<Var name="project:version" value="$ENV[FRAMEWORK_VERSION]"/> <!-- expect calling script to set this environment variable -->
-	<Var name="project:version:public" value="$ENV[FRAMEWORK_VERSION_PUBLIC]"/> <!-- expect calling script to set this environment variable -->
+	<Var name="project:version" value="$ENV[PROJECT_VERSION]"/> <!-- expect calling script to set this environment variable -->
+	<Var name="project:version:public" value="$ENV[PROJECT_VERSION_PUBLIC]"/> <!-- expect calling script to set this environment variable -->
 	<Var name="project:file" type="dynamic" expression="${project:name}.xcodeproj"/>
 	<Var name="project:workspace" type="dynamic" expression="${project:name}.xcworkspace"/>
 	<Var name="project:hasWorkspace" type="dynamic" expression="^fileExists(${repo:dir}/${project:workspace})"/>
@@ -142,7 +142,7 @@ In recent years, Mockingbird Library has been developed and maintained by Evan M
 		</Var>
 	</Var>
 	
-	<Var name="project:hasGeneratedDocumentation" type="dynamic" expression="^if(^setContains(^setWithArray(^array(framework|application))|^log($project:skeleton))|#(1)|#(0))"/>
+	<Var name="project:hasGeneratedDocumentation" type="dynamic" expression="^if(^setContains(^setWithArray(^array(framework|application))|$project:skeleton)|#(1)|#(0))"/>
 	<Var name="docs:root" type="dynamic" expression="https://rawgit.com/${repo:owner}/${repo:name}/${repo:branch}/Documentation"/>
 	<Var name="docs:api:root" type="dynamic" expression="${docs:root}/API"/>
 	<Var name="docs:api:index" type="dynamic" expression="${docs:api:root}/index.html"/>

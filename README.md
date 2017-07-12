@@ -36,7 +36,7 @@ The simplest way to integrate SwiftPoet is with the [Carthage](https://github.co
 First, add this line to your [`Cartfile`](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
 ```
-github "gilt/SwiftPoet" ~> 0.6.0
+github "gilt/SwiftPoet" ~> 0.9.0
 ```
 
 Then, use the `carthage` command to [update your dependencies](https://github.com/Carthage/Carthage#upgrading-frameworks).
