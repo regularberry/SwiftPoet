@@ -46,6 +46,8 @@ open class FieldSpec: PoetSpec, FieldSpecType {
     @discardableResult
     open override func emit(to writer: CodeWriter) -> CodeWriter {
         writer.emit(documentationFor: self)
+
+        assert(parentType != nil)
         
         guard let parentType = parentType else {
             return writer

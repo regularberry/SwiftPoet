@@ -43,6 +43,7 @@
 		3BBB845D1EF19A1300CB2BD5 /* PoetUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB84581EF19A1300CB2BD5 /* PoetUtil.swift */; };
 		3BBB845E1EF19A1300CB2BD5 /* ReservedWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB84591EF19A1300CB2BD5 /* ReservedWords.swift */; };
 		3BBB845F1EF19A1300CB2BD5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB845A1EF19A1300CB2BD5 /* StringExtension.swift */; };
+		8E412F211F30C8CE000A1889 /* FieldSpecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E412F201F30C8CE000A1889 /* FieldSpecTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		3BBB84591EF19A1300CB2BD5 /* ReservedWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservedWords.swift; path = Sources/ReservedWords.swift; sourceTree = SOURCE_ROOT; };
 		3BBB845A1EF19A1300CB2BD5 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = Sources/StringExtension.swift; sourceTree = SOURCE_ROOT; };
 		3BDB181E1F158A6D00803117 /* Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Target.xcconfig; sourceTree = "<group>"; };
+		8E412F201F30C8CE000A1889 /* FieldSpecTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldSpecTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				3B475DF81DB482180047D397 /* MethodSpecTests.swift */,
 				3B475DF91DB482180047D397 /* PoetUtilTests.swift */,
 				3B475DFA1DB482180047D397 /* TypeNameTests.swift */,
+				8E412F201F30C8CE000A1889 /* FieldSpecTests.swift */,
 			);
 			path = FileTests;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B475E011DB482180047D397 /* MethodSpecTests.swift in Sources */,
+				8E412F211F30C8CE000A1889 /* FieldSpecTests.swift in Sources */,
 				3B475E051DB482180047D397 /* GenrateEnumFromSetTest.swift in Sources */,
 				3B475DFF1DB482180047D397 /* ControlFlowTests.swift in Sources */,
 				3B475E041DB482180047D397 /* GenerateModelFromJSON.swift in Sources */,

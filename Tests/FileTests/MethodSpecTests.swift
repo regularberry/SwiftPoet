@@ -212,4 +212,37 @@ class MethodSpecTests: XCTestCase {
         XCTAssertEqual(result, method.toString())
     }
 
+    func testEquality() {
+        /*
+         static func == (lhs: GridPoint, rhs: GridPoint) -> Bool {
+            return lhs.x == rhs.x && lhs.y == rhs.y
+         }
+         */
+        let type = TypeName(keyword: "GridPoint")
+        let method = MethodSpec.builder(for: "==")
+            .add(modifier: .Static)
+            .add(parameters: [
+                ParameterSpec.builder(for: "lhs", type: type).build(),
+                ParameterSpec.builder(for: "rhs", type: type).build()
+            ])
+            .add(returnType: TypeName.BooleanType)
+            .add(codeBlock: CodeBlock.builder().add(literal: "return lhs.x == rhs.x && lhs.y == rhs.y").build())
+            .build()
+
+        let result =
+        "/**\n" +
+        "    :param:    lhs\n" +
+        "\n" +
+        "    :param:    rhs\n" +
+        "*/\n" +
+        "static func ==(lhs: GridPoint, rhs: GridPoint) -> Bool {\n" +
+        "    return lhs.x == rhs.x && lhs.y == rhs.y\n" +
+        "}"
+
+//        print(method.toString())
+//        print(result)
+
+        XCTAssertEqual(result, method.toString())
+    }
+
 }
