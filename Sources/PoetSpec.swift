@@ -27,6 +27,7 @@ open class PoetSpec: PoetSpecType, Emitter, Importable {
     open let generatorInfo: String?
     open let framework: String?
     open let imports: Set<String>
+    open let key: UUID // Unique key for equality checking
 
     public init(name: String, construct: Construct, modifiers: Set<Modifier>, description: String?, generatorInfo: String?, framework: String?, imports: Set<String>) {
         self.name = name
@@ -36,6 +37,7 @@ open class PoetSpec: PoetSpecType, Emitter, Importable {
         self.generatorInfo = generatorInfo
         self.framework = framework
         self.imports = imports
+        self.key = UUID()
     }
 
     open func emit(to writer: CodeWriter) -> CodeWriter {
@@ -58,7 +60,7 @@ open class PoetSpec: PoetSpecType, Emitter, Importable {
 extension PoetSpec: Equatable {}
 
 public func ==(lhs: PoetSpec, rhs: PoetSpec) -> Bool {
-    return type(of: lhs) == type(of: rhs) && lhs.toString() == rhs.toString()
+    return type(of: lhs) == type(of: rhs) && lhs.key == rhs.key
 }
 
 extension PoetSpec: Hashable {
