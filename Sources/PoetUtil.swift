@@ -26,14 +26,16 @@ public struct PoetUtil {
         }
     }
 
-    internal static func stripSpaceAndPunctuation(_ name: String) -> [String] {
+    internal static func stripSpaceAndPunctuation<T: StringProtocol>(_ name: T) -> [String] {
+        let nameStr = String(name)
+
         guard let regex = spaceAndPunctuationRegex else {
-            return [name]
+            return [nameStr]
         }
 
         return regex.stringByReplacingMatches(
-            in: name, options: [],
-            range: NSMakeRange(0, name.characters.count), withTemplate: template)
+            in: nameStr, options: [],
+            range: NSMakeRange(0, nameStr.characters.count), withTemplate: template)
                 .components(separatedBy: template)
                 .map { capitalizeFirstChar($0) }
     }
@@ -58,7 +60,7 @@ public struct PoetUtil {
         }
 
         var chars = str.characters
-        let first = str.substring(to: chars.index(after: chars.startIndex))
+        let first = String(str[..<chars.index(after: chars.startIndex)])
         let range = chars.startIndex..<chars.index(after: chars.startIndex)
         chars.replaceSubrange(range, with: caseFn(first))
         return String(chars)

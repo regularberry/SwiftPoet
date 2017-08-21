@@ -26,6 +26,11 @@ open class TypeName: Importable {
     open let optional: Bool
     open var imports: Set<String>
 
+    public convenience init<T: StringProtocol>(keyword: T, attributes: [String] = [], optional: Bool = false, imports: [String]? = nil)
+    {
+        self.init(keyword: String(keyword), attributes: attributes, optional: optional, imports: imports)
+    }
+
     public init(keyword: String, attributes: [String] = [], optional: Bool = false, imports: [String]? = nil) {
         let trimmedKeyWord = keyword.trimmingCharacters(in: .whitespaces)
         let nonOptionalKeyword: String
@@ -34,12 +39,12 @@ open class TypeName: Importable {
             let chars = trimmedKeyWord.characters
             let endIndex = chars.index(chars.endIndex, offsetBy: -2)
             let startIndex = chars.index(after: chars.startIndex)
-            nonOptionalKeyword = trimmedKeyWord.substring(with: startIndex..<endIndex)
+            nonOptionalKeyword = String(trimmedKeyWord[startIndex..<endIndex])
             stringOptional = true
         } else if TypeName.isOptional(keyword) {
             let chars = trimmedKeyWord.characters
             let endIndex = chars.index(before: chars.endIndex)
-            nonOptionalKeyword = trimmedKeyWord.substring(with: chars.startIndex..<endIndex)
+            nonOptionalKeyword = String(trimmedKeyWord[chars.startIndex..<endIndex])
             stringOptional = true
         } else {
             nonOptionalKeyword = trimmedKeyWord
@@ -53,9 +58,9 @@ open class TypeName: Importable {
             let returnRange = nonOptionalKeyword.range(of: "->")!
             // Find function inputs
             let endIndex = nonOptionalKeyword.index(returnRange.lowerBound, offsetBy:-2)
-            let inputs = nonOptionalKeyword.substring(with: chars.index(after: chars.startIndex)..<endIndex)
+            let inputs = nonOptionalKeyword[chars.index(after: chars.startIndex)..<endIndex]
             // Find return type
-            let returnType = nonOptionalKeyword.substring(with: chars.index(after: returnRange.upperBound)..<chars.endIndex)
+            let returnType = nonOptionalKeyword[chars.index(after: returnRange.upperBound)..<chars.endIndex]
 
             let leftInnerTypes = inputs.components(separatedBy: ",").map {
                 TypeName(keyword: $0)
@@ -76,13 +81,13 @@ open class TypeName: Importable {
 
             // find keyword before generics
             let keywordStrRange = nonOptionalKeyword.startIndex..<leftIndex
-            let keywordStr = nonOptionalKeyword.substring(with: keywordStrRange)
+            let keywordStr = nonOptionalKeyword[keywordStrRange]
 
             // find contents of generic brackets
             // Note: This implmentation won't support multiple generics with multiple generics
             // i.e. Dictionary<String,Dictionary<String,String>>
             let genericsRange = chars.index(after: leftIndex)..<rightIndex
-            let generics = nonOptionalKeyword.substring(with: genericsRange)
+            let generics = nonOptionalKeyword[genericsRange]
 
             self.innerTypes = generics.components(separatedBy: ",").map {
                 TypeName(keyword: $0)
@@ -95,8 +100,8 @@ open class TypeName: Importable {
             let splitIndex = nonOptionalKeyword.range(of: ":")!.lowerBound
 
             self.innerTypes = [
-                TypeName(keyword: nonOptionalKeyword.substring(with: chars.index(after: chars.startIndex)..<splitIndex)),
-                TypeName(keyword: nonOptionalKeyword.substring(with: chars.index(after: splitIndex)..<endIndex))
+                TypeName(keyword: nonOptionalKeyword[chars.index(after: chars.startIndex)..<splitIndex]),
+                TypeName(keyword: nonOptionalKeyword[chars.index(after: splitIndex)..<endIndex])
             ]
             self.keyword = "Dictionary".cleaned(.typeName)
             
@@ -105,7 +110,7 @@ open class TypeName: Importable {
             let endIndex = chars.index(before: chars.endIndex)
             let range = chars.index(after: chars.startIndex)..<endIndex
 
-            self.innerTypes = [TypeName(keyword: nonOptionalKeyword.substring(with: range))]
+            self.innerTypes = [TypeName(keyword: nonOptionalKeyword[range])]
             self.keyword = "Array".cleaned(.typeName)
 
         } else {

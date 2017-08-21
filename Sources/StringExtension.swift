@@ -14,7 +14,15 @@ extension String {
     }
 }
 
-extension String {
+extension String
+{
+    public enum Case {
+        case typeName
+        case paramName
+    }
+}
+
+extension StringProtocol {
     public func cleaned(_ stringCase: String.Case) -> String {
         switch stringCase {
         case .typeName:
@@ -23,10 +31,5 @@ extension String {
             let cleanedNameChars = PoetUtil.stripSpaceAndPunctuation(self).joined(separator: "")
             return ReservedWords.safeWord(PoetUtil.lowercaseFirstChar(cleanedNameChars))
         }
-    }
-
-    public enum Case {
-        case typeName
-        case paramName
     }
 }
