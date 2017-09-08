@@ -10,9 +10,7 @@ SwiftPoet is part of [the Cleanroom Project](https://github.com/gilt/Cleanroom) 
 
 ### Swift compatibility
 
-**Important:** This is the `swift-4` branch. It uses **Swift 4.0** and **requires Xcode 9.0 beta** to compile.
-
-If you need Swift 3.1 compatibility, use the [`master`](https://github.com/gilt/SwiftPoet) branch, which requires Xcode 8.3.
+This is the `master` branch. It uses **Swift 4.0** and **requires Xcode 9.0** to compile.
 
 
 #### Current status
@@ -20,11 +18,11 @@ If you need Swift 3.1 compatibility, use the [`master`](https://github.com/gilt/
 Branch|Build status
 --------|------------------------
 [`master`](https://github.com/gilt/SwiftPoet)|[![Build status: master branch](https://travis-ci.org/gilt/SwiftPoet.svg?branch=master)](https://travis-ci.org/gilt/SwiftPoet)
-[`swift-4`](https://github.com/gilt/SwiftPoet/tree/swift-4)|[![Build status: swift-4 branch](https://travis-ci.org/gilt/SwiftPoet.svg?branch=swift-4)](https://travis-ci.org/gilt/SwiftPoet)
+
 
 ### License
 
-SwiftPoet is distributed under [the MIT license](https://github.com/gilt/SwiftPoet/blob/swift-4/LICENSE).
+SwiftPoet is distributed under [the MIT license](https://github.com/gilt/SwiftPoet/blob/master/LICENSE).
 
 SwiftPoet is provided for your use—free-of-charge—on an as-is basis. We make no guarantees, promises or apologies. *Caveat developer.*
 
@@ -38,12 +36,12 @@ The simplest way to integrate SwiftPoet is with the [Carthage](https://github.co
 First, add this line to your [`Cartfile`](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
 ```
-github "gilt/SwiftPoet" ~> 0.9.0
+github "gilt/SwiftPoet" ~> 1.0.0
 ```
 
 Then, use the `carthage` command to [update your dependencies](https://github.com/Carthage/Carthage#upgrading-frameworks).
 
-Finally, you’ll need to [integrate SwiftPoet into your project](https://github.com/gilt/SwiftPoet/blob/swift-4/INTEGRATION.md) in order to use [the API](https://rawgit.com/gilt/SwiftPoet/swift-4/Documentation/API/index.html) it provides.
+Finally, you’ll need to [integrate SwiftPoet into your project](https://github.com/gilt/SwiftPoet/blob/master/INTEGRATION.md) in order to use [the API](https://rawgit.com/gilt/SwiftPoet/master/Documentation/API/index.html) it provides.
 
 Once successfully integrated, just add the following statement to any Swift file where you want to use SwiftPoet:
 
@@ -51,11 +49,11 @@ Once successfully integrated, just add the following statement to any Swift file
 import SwiftPoet
 ```
 
-See [the Integration document](https://github.com/gilt/SwiftPoet/blob/swift-4/INTEGRATION.md) for additional details on integrating SwiftPoet into your project.
+See [the Integration document](https://github.com/gilt/SwiftPoet/blob/master/INTEGRATION.md) for additional details on integrating SwiftPoet into your project.
 
 ### API documentation
 
-For detailed information on using SwiftPoet, [API documentation](https://rawgit.com/gilt/SwiftPoet/swift-4/Documentation/API/index.html) is available.
+For detailed information on using SwiftPoet, [API documentation](https://rawgit.com/gilt/SwiftPoet/master/Documentation/API/index.html) is available.
 
 
 ## About
