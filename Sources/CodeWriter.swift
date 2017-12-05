@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias Appendable = String.CharacterView
+public typealias Appendable = Substring
 
 open class CodeWriter: NSObject {
     fileprivate var _out: Appendable
@@ -104,7 +104,7 @@ extension CodeWriter {
         header.append(headerLine(withString: generatedByAt()))
         header.append(headerLine())
         
-        _out.append(contentsOf: header.joined(separator: "\n").characters)
+        _out.append(contentsOf: header.joined(separator: "\n"))
         emitNewLine()
         emitNewLine()
     }
@@ -132,9 +132,9 @@ extension CodeWriter {
     {
         if (toEmit.count > 0) {
             let importString = toEmit.joined(separator: "\nimport ")
-            _out.append(contentsOf: "import ".characters)
-            _out.append(contentsOf: importString.characters)
-            _out.append(contentsOf: "\n\n".characters)
+            _out.append(contentsOf: "import ")
+            _out.append(contentsOf: importString)
+            _out.append(contentsOf: "\n\n")
         }
         return self
     }
@@ -153,7 +153,7 @@ extension CodeWriter {
             specDoc.append(firstline)
             specDoc.append(indentedDocs)
             specDoc.append(lastline)
-            _out.append(contentsOf: specDoc.characters)
+            _out.append(contentsOf: specDoc)
         }
         return self
     }
@@ -164,7 +164,7 @@ extension CodeWriter {
     {
         if let docs = field.description {
             let comment = "// \(docs)\n".byIndenting(level: indentLevel)
-            _out.append(contentsOf: comment.characters)
+            _out.append(contentsOf: comment)
         }
         return self
     }
@@ -173,7 +173,7 @@ extension CodeWriter {
     public func emit(documentationFor method: MethodSpec)
         -> CodeWriter
     {
-        guard method.description != nil || method.parameters.count > 0 else {
+        guard method.description != nil || !method.parameters.isEmpty else {
             return self
         }
 
@@ -207,7 +207,7 @@ extension CodeWriter {
         }
         specDoc.append("\n")
         specDoc.append(lastline)
-        _out.append(contentsOf: specDoc.characters)
+        _out.append(contentsOf: specDoc)
         return self
     }
 
@@ -215,8 +215,8 @@ extension CodeWriter {
     public func emit(modifiers toEmit: Set<Modifier>)
         -> CodeWriter
     {
-        guard toEmit.count > 0 else {
-            _out.append(contentsOf: "".byIndenting(level: indentLevel).characters)
+        guard !toEmit.isEmpty else {
+            _out.append(contentsOf: "".byIndenting(level: indentLevel))
             return self
         }
 
@@ -224,7 +224,7 @@ extension CodeWriter {
             return m.rawString
         }.joined(separator: " ") + " "
 
-        _out.append(contentsOf: modListStr.byIndenting(level: indentLevel).characters)
+        _out.append(contentsOf: modListStr.byIndenting(level: indentLevel))
 
         return self
     }
@@ -302,11 +302,11 @@ extension CodeWriter {
         if let _ = value as? TypeSpec {
             // Dunno
         } else if let literalType = value as? Literal {
-            var lv = literalType.literalValue().characters
+            var lv = literalType.literalValue()
             if !trimString { lv.insert(" ", at: lv.startIndex) }
             _out.append(contentsOf: lv)
         } else if let str = value as? String {
-            _out.append(contentsOf: str.characters)
+            _out.append(contentsOf: str)
         }
     }
 
@@ -330,8 +330,8 @@ extension CodeWriter {
         let stringValues = inheritanceValues.flatMap{$0}
 
         if stringValues.count > 0 {
-            _out.append(contentsOf: ": ".characters)
-            _out.append(contentsOf: stringValues.joined(separator: ", ").characters)
+            _out.append(contentsOf: ": ")
+            _out.append(contentsOf: stringValues.joined(separator: ", "))
         }
 
         return self
@@ -340,7 +340,7 @@ extension CodeWriter {
     fileprivate func emitBeginStatement()
     {
         let begin = " {"
-        _out.append(contentsOf: begin.characters)
+        _out.append(contentsOf: begin)
         indent()
     }
 
@@ -350,7 +350,7 @@ extension CodeWriter {
         unindent()
         let endBracket = "}".byIndenting(level: indentLevel)
         let end = newline + endBracket
-        _out.append(contentsOf: end.characters)
+        _out.append(contentsOf: end)
     }
 
     @discardableResult
@@ -366,7 +366,7 @@ extension CodeWriter {
 
     fileprivate func emitIndentation()
     {
-        _out.append(contentsOf: "".byIndenting(level: indentLevel).characters)
+        _out.append(contentsOf: "".byIndenting(level: indentLevel))
     }
 
     @discardableResult
@@ -375,7 +375,7 @@ extension CodeWriter {
     {
         _out.append(contentsOf: (toEmit.map { spec in
             spec.toString()
-        }).joined(separator: "\n\n").characters)
+        }).joined(separator: "\n\n"))
         emitNewLine()
         return self
     }

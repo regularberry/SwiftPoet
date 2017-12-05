@@ -35,7 +35,7 @@ public struct PoetUtil {
 
         return regex.stringByReplacingMatches(
             in: nameStr, options: [],
-            range: NSMakeRange(0, nameStr.characters.count), withTemplate: template)
+            range: NSMakeRange(0, nameStr.count), withTemplate: template)
                 .components(separatedBy: template)
                 .map { capitalizeFirstChar($0) }
     }
@@ -43,23 +43,23 @@ public struct PoetUtil {
     // capitalize first letter without removing cammel case on other characters
     internal static func capitalizeFirstChar(_ str: String) -> String {
         return caseFirstChar(str) {
-            return $0.uppercased().characters
+            return $0.uppercased()
         }
     }
 
     // lowercase first letter without removing cammel case on other characters
     internal static func lowercaseFirstChar(_ str: String) -> String {
         return caseFirstChar(str) {
-            return $0.lowercased().characters
+            return $0.lowercased()
         }
     }
 
-    fileprivate static func caseFirstChar(_ str: String, caseFn: (_ str: String) -> String.CharacterView) -> String {
-        guard str.characters.count > 0 else {
+    fileprivate static func caseFirstChar(_ str: String, caseFn: (_ str: String) -> String) -> String {
+        guard !str.isEmpty else {
             return str // This does happen!
         }
 
-        var chars = str.characters
+        var chars = str
         let first = String(str[..<chars.index(after: chars.startIndex)])
         let range = chars.startIndex..<chars.index(after: chars.startIndex)
         chars.replaceSubrange(range, with: caseFn(first))

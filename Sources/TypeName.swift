@@ -36,13 +36,13 @@ open class TypeName: Importable {
         let nonOptionalKeyword: String
         let stringOptional: Bool
         if TypeName.isOptionalClosure(keyword) {
-            let chars = trimmedKeyWord.characters
+            let chars = trimmedKeyWord
             let endIndex = chars.index(chars.endIndex, offsetBy: -2)
             let startIndex = chars.index(after: chars.startIndex)
             nonOptionalKeyword = String(trimmedKeyWord[startIndex..<endIndex])
             stringOptional = true
         } else if TypeName.isOptional(keyword) {
-            let chars = trimmedKeyWord.characters
+            let chars = trimmedKeyWord
             let endIndex = chars.index(before: chars.endIndex)
             nonOptionalKeyword = String(trimmedKeyWord[chars.startIndex..<endIndex])
             stringOptional = true
@@ -53,7 +53,7 @@ open class TypeName: Importable {
         self.attributes = attributes
 
         if TypeName.isClosure(nonOptionalKeyword) {
-            let chars = nonOptionalKeyword.characters
+            let chars = nonOptionalKeyword
             // find ->
             let returnRange = nonOptionalKeyword.range(of: "->")!
             // Find function inputs
@@ -70,11 +70,11 @@ open class TypeName: Importable {
             self.keyword = "Closure"
 
         } else if TypeName.containsGenerics(nonOptionalKeyword) {
-            let chars = nonOptionalKeyword.characters
+            let chars = nonOptionalKeyword
             // find first `<`
             let leftIndex = nonOptionalKeyword.range(of: "<")!.lowerBound
             // find last `>`
-            let reverse = String(nonOptionalKeyword.characters.reversed())
+            let reverse = String(nonOptionalKeyword.reversed())
             let endIndex = reverse.range(of: ">")!.upperBound
             let distance = reverse.distance(from:reverse.startIndex, to:endIndex)
             let rightIndex = nonOptionalKeyword.index(nonOptionalKeyword.endIndex, offsetBy: -distance)
@@ -95,7 +95,7 @@ open class TypeName: Importable {
             self.keyword = keywordStr.cleaned(.typeName)
 
         } else if TypeName.isDictionary(nonOptionalKeyword) {
-            let chars = nonOptionalKeyword.characters
+            let chars = nonOptionalKeyword
             let endIndex = chars.index(before: chars.endIndex)
             let splitIndex = nonOptionalKeyword.range(of: ":")!.lowerBound
 
@@ -106,7 +106,7 @@ open class TypeName: Importable {
             self.keyword = "Dictionary".cleaned(.typeName)
             
         } else if TypeName.isArray(nonOptionalKeyword) {
-            let chars = nonOptionalKeyword.characters
+            let chars = nonOptionalKeyword
             let endIndex = chars.index(before: chars.endIndex)
             let range = chars.index(after: chars.startIndex)..<endIndex
 
@@ -155,7 +155,7 @@ open class TypeName: Importable {
 
     private static func test(pattern: String, for keyword: String) -> Bool {
         var match: NSRegularExpression?
-        let range = NSRange(location: 0, length: keyword.characters.count)
+        let range = NSRange(location: 0, length: keyword.count)
 
         do {
             match = try NSRegularExpression(pattern: pattern, options: .caseInsensitive)
