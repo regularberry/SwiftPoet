@@ -21,12 +21,12 @@ class FieldSpecTests: XCTestCase {
         super.tearDown()
     }
 
-    func testComputedProperty() {
+    func testComputedIntProperty() {
         /*
-         var hashValue: Int {
-            return x.hashValue ^ y.hashValue &* 16777619
+         var hashValue: Int32 {
+         return x.hashValue ^ y.hashValue &* 16777619
          }
-        */
+         */
         let field = FieldSpec.builder(for: "hashValue", type: TypeName.IntegerType, construct: .mutableParam)
             .add(initializer: CodeBlock.builder()
                 .add(literal: "return x.hashValue ^ y.hashValue &* 16777619")
@@ -35,16 +35,36 @@ class FieldSpecTests: XCTestCase {
             .add(parentType: .`enum`)
             .build()
 
-        let result =
-        "var hashValue: Int {\n" +
-        "    return x.hashValue ^ y.hashValue &* 16777619\n" +
-        "}"
+        let result = """
+var hashValue: Int32 {
+    return x.hashValue ^ y.hashValue &* 16777619
+}
+"""
 
         XCTAssertEqual(result, field.toString())
-
-//        print(field.toString())
-//        print(result)
     }
 
+    func testComputedLongProperty() {
+        /*
+         var hashValue: Int64 {
+         return x.hashValue ^ y.hashValue &* 16777619
+         }
+         */
+        let field = FieldSpec.builder(for: "hashValue", type: TypeName.LongType, construct: .mutableParam)
+            .add(initializer: CodeBlock.builder()
+                .add(literal: "return x.hashValue ^ y.hashValue &* 16777619")
+                .build())
+            // adding the parent is done automatically when a field is added to an enum, struct, and class.
+            .add(parentType: .`enum`)
+            .build()
+
+        let result = """
+var hashValue: Int64 {
+    return x.hashValue ^ y.hashValue &* 16777619
+}
+"""
+
+        XCTAssertEqual(result, field.toString())
+    }
 }
 

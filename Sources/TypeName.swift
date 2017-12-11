@@ -218,7 +218,8 @@ extension TypeName: Literal {
 
 extension TypeName {
     public static let BooleanType = TypeName(keyword: "Bool")
-    public static let IntegerType = TypeName(keyword: "Int")
+    public static let IntegerType = TypeName(keyword: "Int32")
+    public static let LongType = TypeName(keyword: "Int64")
     public static let DoubleType = TypeName(keyword: "Double")
     public static let AnyType = TypeName(keyword: "Any")
     public static let StringType = TypeName(keyword: "String")
@@ -226,7 +227,8 @@ extension TypeName {
 
     // Optional
     public static let BooleanOptional = TypeName(keyword: "Bool", optional: true)
-    public static let IntegerOptional = TypeName(keyword: "Int", optional: true)
+    public static let IntegerOptional = TypeName(keyword: "Int32", optional: true)
+    public static let LongOptional = TypeName(keyword: "Int64", optional: true)
     public static let DoubleOptional = TypeName(keyword: "Double", optional: true)
     public static let AnyTypeOptional = TypeName(keyword: "Any", optional: true)
     public static let StringOptional = TypeName(keyword: "String", optional: true)
