@@ -75,7 +75,7 @@ class MethodSpecTests: XCTestCase {
         "    :param:    homeOwner\n\n" +
         "    :param:    petName\n" +
         "*/\n" +
-        "func buildPerson(name: String, age: Int32, homeOwner: Bool, petName: String?) -> Person"
+        "func buildPerson(name: String, age: Int, homeOwner: Bool, petName: String?) -> Person"
 
 //        print(result)
 //        print(method.toString())

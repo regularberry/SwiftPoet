@@ -23,7 +23,7 @@ class FieldSpecTests: XCTestCase {
 
     func testComputedIntProperty() {
         /*
-         var hashValue: Int32 {
+         var hashValue: Int {
          return x.hashValue ^ y.hashValue &* 16777619
          }
          */
@@ -36,7 +36,7 @@ class FieldSpecTests: XCTestCase {
             .build()
 
         let result = """
-var hashValue: Int32 {
+var hashValue: Int {
     return x.hashValue ^ y.hashValue &* 16777619
 }
 """
