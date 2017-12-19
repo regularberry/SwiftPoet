@@ -8,24 +8,33 @@
 
 import Foundation
 
+public enum DefaultValueType {
+    case `nil`
+    case string(String)
+    case other(Any)
+}
+
 public protocol ParameterSpecProtocol {
     var label: String? { get }
     var type: TypeName { get }
+    var defaultValue: DefaultValueType? { get }
 }
 
 open class ParameterSpec: PoetSpec, ParameterSpecProtocol {
     open let label: String?
     open let type: TypeName
+    open let defaultValue: DefaultValueType?
 
     fileprivate init(builder: ParameterSpecBuilder) {
         self.label = builder.label
         self.type = builder.type
+        self.defaultValue = builder.defaultValue
         super.init(name: builder.name, construct: builder.construct, modifiers: builder.modifiers,
                    description: builder.description, generatorInfo: builder.generatorInfo, framework: builder.framework, imports: builder.imports)
     }
 
-    open static func builder(for name: String, label: String? = nil, type: TypeName, construct: Construct? = nil) -> ParameterSpecBuilder {
-        return ParameterSpecBuilder(name: name, label: label, type: type, construct: construct)
+    open static func builder(for name: String, label: String? = nil, type: TypeName, construct: Construct? = nil, defaultValue: DefaultValueType? = nil) -> ParameterSpecBuilder {
+        return ParameterSpecBuilder(name: name, label: label, type: type, construct: construct, defaultValue: defaultValue)
     }
 
     open override func collectImports() -> Set<String> {
@@ -44,6 +53,17 @@ open class ParameterSpec: PoetSpec, ParameterSpecProtocol {
         cbBuilder.add(literal: name)
         cbBuilder.add(literal: ":", trimString: true)
         cbBuilder.add(literal: type)
+        if let defaultValue = defaultValue {
+            cbBuilder.add(literal: "=")
+            switch defaultValue {
+            case .nil:
+                cbBuilder.add(literal: "nil")
+            case .string(let str):
+                cbBuilder.add(literal: "\"\(str)\"")
+            case .other(let val):
+                cbBuilder.add(literal: "\(val)")
+            }
+        }
         writer.emit(codeBlock: cbBuilder.build())
         return writer
     }
@@ -55,10 +75,12 @@ open class ParameterSpecBuilder: PoetSpecBuilder, Builder, ParameterSpecProtocol
 
     open let label: String?
     open let type: TypeName
+    open let defaultValue: DefaultValueType?
 
-    fileprivate init(name: String, label: String? = nil, type: TypeName, construct: Construct? = nil) {
+    fileprivate init(name: String, label: String? = nil, type: TypeName, construct: Construct? = nil, defaultValue: DefaultValueType? = nil) {
         self.label = label
         self.type = type
+        self.defaultValue = defaultValue
         let requiredConstruct = construct == nil || construct! != .mutableParam ? ParameterSpecBuilder.defaultConstruct : construct!
         super.init(name: name.cleaned(.paramName), construct: requiredConstruct)
     }
