@@ -26,7 +26,7 @@ public struct PoetUtil {
         }
     }
 
-    internal static func stripSpaceAndPunctuation<T: StringProtocol>(_ name: T) -> [String] {
+    internal static func stripSpaceAndPunctuation<T: StringProtocol>(_ name: T, escapeUppercase: Bool = false ) -> [String] {
         let nameStr = String(name)
 
         guard let regex = spaceAndPunctuationRegex else {
@@ -36,8 +36,13 @@ public struct PoetUtil {
         return regex.stringByReplacingMatches(
             in: nameStr, options: [],
             range: NSMakeRange(0, nameStr.count), withTemplate: template)
-                .components(separatedBy: template)
-                .map { capitalizeFirstChar($0) }
+            .components(separatedBy: template)
+            .map { string in
+                if escapeUppercase && string == string.uppercased() {
+                    return capitalizeFirstChar(string.lowercased())
+                }
+                return capitalizeFirstChar(string)
+            }
     }
 
     // capitalize first letter without removing cammel case on other characters
