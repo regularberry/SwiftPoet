@@ -30,7 +30,7 @@ public struct ReservedWords {
 
     public static func safeWord(_ word: String) -> String {
         guard ReservedWords.contains(word) == false else {
-            return "_" + word
+            return "`\(word)`"
         }
         return word
     }
