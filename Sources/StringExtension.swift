@@ -19,6 +19,7 @@ extension String
     public enum Case {
         case typeName
         case paramName
+        case uppercasedName
     }
 }
 
@@ -33,6 +34,9 @@ extension StringProtocol {
                 return ReservedWords.safeWord(cleanedNameChars.lowercased())
             }
             return ReservedWords.safeWord(PoetUtil.lowercaseFirstChar(cleanedNameChars))
+        case .uppercasedName:
+            let cleanedNameChars = PoetUtil.stripSpaceAndPunctuation(self).joined(separator: "")
+            return ReservedWords.safeWord(cleanedNameChars.uppercased())
         }
     }
 }
