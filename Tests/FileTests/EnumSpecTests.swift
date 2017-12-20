@@ -152,7 +152,7 @@ class EnumSpecTests: XCTestCase {
         "*/\n" +
         "private enum Test: TestProtocol, OtherProtocol {\n" +
         "    // This is the first test case\n" +
-        "    case TestCaseOne = \"test_case_one\"\n" +
+        "    case testCaseOne = \"test_case_one\"\n" +
         "}"
 
         XCTAssertEqual(result, e.toString())
@@ -185,25 +185,25 @@ class EnumSpecTests: XCTestCase {
         "*/\n" +
         "private enum Test: TestProtocol, OtherProtocol {\n" +
         "    // This is the 1th case\n" +
-        "    case TestCase1\n" +
+        "    case testCase1\n" +
         "    // This is the 2th case\n" +
-        "    case TestCase2 = \"test_case_2\"\n" +
+        "    case testCase2 = \"test_case_2\"\n" +
         "    // This is the 3th case\n" +
-        "    case TestCase3\n" +
+        "    case testCase3\n" +
         "    // This is the 4th case\n" +
-        "    case TestCase4 = \"test_case_4\"\n" +
+        "    case testCase4 = \"test_case_4\"\n" +
         "    // This is the 5th case\n" +
-        "    case TestCase5\n" +
+        "    case testCase5\n" +
         "    // This is the 6th case\n" +
-        "    case TestCase6 = \"test_case_6\"\n" +
+        "    case testCase6 = \"test_case_6\"\n" +
         "    // This is the 7th case\n" +
-        "    case TestCase7\n" +
+        "    case testCase7\n" +
         "    // This is the 8th case\n" +
-        "    case TestCase8 = \"test_case_8\"\n" +
+        "    case testCase8 = \"test_case_8\"\n" +
         "    // This is the 9th case\n" +
-        "    case TestCase9\n" +
+        "    case testCase9\n" +
         "    // This is the 10th case\n" +
-        "    case TestCase10 = \"test_case_10\"\n" +
+        "    case testCase10 = \"test_case_10\"\n" +
         "}"
 
         XCTAssertEqual(result, e.toString())

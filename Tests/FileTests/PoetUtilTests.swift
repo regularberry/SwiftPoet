@@ -29,10 +29,10 @@ class PoetUtilTests: XCTestCase {
         XCTAssertEqual("TestUnderscore", name.cleaned(.typeName))
     }
 
-//    func testCleanTypeNameAllCaps() {
-//        let name = "TEST_ALL_CAPS"
-//        XCTAssertEqual("TestAllCaps", name.cleaned(.typeName))
-//    }
+    func testCleanTypeNameAllCaps() {
+        let name = "TEST_ALL_CAPS"
+        XCTAssertEqual("TESTALLCAPS", name.cleaned(.typeName))
+    }
 
     func testTypeNameWithBrackets() {
         let name = "billing_address[street_line1]"
@@ -64,10 +64,15 @@ class PoetUtilTests: XCTestCase {
         XCTAssertEqual("testTestTest", name.cleaned(.paramName))
     }
 
-//    func testCamelCaseNameAllCaps() {
-//        let name = "TEST_ALL_CAPS"
-//        XCTAssertEqual("testAllCaps", name.cleaned(.paramName))
-//    }
+    func testCamelCaseNameAllCaps() {
+        let name = "TEST_ALL_CAPS"
+        XCTAssertEqual("testAllCaps", name.cleaned(.paramName))
+    }
+
+    func testUppercasedCaseName() {
+        let name = "TEST"
+        XCTAssertEqual("TEST", name.cleaned(.uppercasedName))
+    }
 
     func testPeriodsInName() {
         let name = "test.periods.in.name"
