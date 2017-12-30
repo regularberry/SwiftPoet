@@ -31,9 +31,9 @@ extension StringProtocol {
         case .paramName:
             let cleanedNameChars = PoetUtil.stripSpaceAndPunctuation(self, escapeUppercase: true).joined(separator: "")
             if cleanedNameChars == cleanedNameChars.uppercased() {
-                return ReservedWords.safeWord(cleanedNameChars.lowercased())
+                return cleanedNameChars.lowercased()
             }
-            return ReservedWords.safeWord(PoetUtil.lowercaseFirstChar(cleanedNameChars))
+            return PoetUtil.lowercaseFirstChar(cleanedNameChars)
         case .uppercasedName:
             let cleanedNameChars = PoetUtil.stripSpaceAndPunctuation(self).joined(separator: "")
             return ReservedWords.safeWord(cleanedNameChars.uppercased())
