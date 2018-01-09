@@ -161,4 +161,16 @@ extension StructSpecBuilder {
         mutatingAdd(imports: toAdd)
         return self
     }
+    
+    @discardableResult
+    public func add(subtype toAdd: TypeSpec) -> Self {
+        mutatingAdd(subtype: toAdd)
+        return self
+    }
+    
+    @discardableResult
+    public func add(subtypes toAdd: [TypeSpec]) -> Self {
+        mutatingAdd(subtypes: toAdd)
+        return self
+    }
 }
