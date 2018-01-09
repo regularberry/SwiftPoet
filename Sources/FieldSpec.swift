@@ -71,7 +71,7 @@ open class FieldSpec: PoetSpec, FieldSpecType {
     }
 
     fileprivate func emit(enumType codeWriter: CodeWriter) {
-        let cleanName = name.cleaned(.typeName)
+        let cleanName = name.cleaned(.paramName)
         let cbBuilder = CodeBlock.builder()
                     .add(literal: "case")
                     .add(literal: cleanName)
