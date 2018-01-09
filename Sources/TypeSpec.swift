@@ -13,6 +13,7 @@ public protocol TypeSpecProtocol {
     var fields: [FieldSpec] { get }
     var superType: TypeName? { get }
     var protocols: [TypeName] { get }
+    var subtypes: [TypeSpec] { get }
 }
 
 open class TypeSpec: PoetSpec, TypeSpecProtocol {
@@ -20,12 +21,14 @@ open class TypeSpec: PoetSpec, TypeSpecProtocol {
     open let fields: [FieldSpec]
     open let superType: TypeName?
     open let protocols: [TypeName]
+    open let subtypes: [TypeSpec]
 
     public init(builder: TypeSpecBuilder) {
         methods = builder.methods
         fields = builder.fields
         superType = builder.superType
         protocols = builder.protocols
+        subtypes = builder.subtypes
 
         super.init(name: builder.name, construct: builder.construct, modifiers: builder.modifiers, description: builder.description, generatorInfo: builder.generatorInfo, framework: builder.framework, imports: builder.imports)
     }
@@ -51,6 +54,7 @@ open class TypeSpec: PoetSpec, TypeSpecProtocol {
         }
     }
 
+    @discardableResult
     open override func emit(to writer: CodeWriter) -> CodeWriter {
         writer.emit(documentationFor: self)
         writer.emit(modifiers: modifiers)
@@ -69,6 +73,16 @@ open class TypeSpec: PoetSpec, TypeSpecProtocol {
             if !first { writer.emitNewLine() }
             spec.emit(to: writer)
             first = false
+        }
+        
+        if !subtypes.isEmpty {
+            writer.emitNewLine()
+        }
+        
+        subtypes.forEach { subtype in
+            writer.emitNewLine()
+            subtype.emit(to: writer)
+            writer.emitNewLine()
         }
 
         if !methods.isEmpty {
@@ -92,6 +106,7 @@ open class TypeSpecBuilder: PoetSpecBuilder, TypeSpecProtocol {
     open fileprivate(set) var fields = [FieldSpec]()
     open fileprivate(set) var protocols = [TypeName]()
     open fileprivate(set) var superType: TypeName? = nil
+    open fileprivate(set) var subtypes: [TypeSpec] = [TypeSpec]()
 
     public override init(name: String, construct: Construct) {
         super.init(name: name.cleaned(.typeName), construct: construct)
@@ -137,5 +152,15 @@ open class TypeSpecBuilder: PoetSpecBuilder, TypeSpecProtocol {
 
     internal func mutatingAdd(superType toAdd: TypeName) {
         self.superType = toAdd
+    }
+    
+    internal func mutatingAdd(subtype toAdd: TypeSpec) {
+        subtypes.append(toAdd)
+    }
+    
+    internal func mutatingAdd(subtypes toAdd: [TypeSpec]) {
+        for subtype in toAdd {
+            mutatingAdd(subtype: subtype)
+        }
     }
 }
