@@ -53,8 +53,9 @@ open class StructSpecBuilder: TypeSpecBuilder, Builder {
                     .add(description: spec.description)
                     .build()
                 )
+                let cleanName = spec.name.cleaned(.camelCaseName)
 
-                cb.add(codeBlock: "self.\(spec.name) = \(spec.name)".toCodeBlock())
+                cb.add(codeBlock: "self.\(cleanName) = \(cleanName)".toCodeBlock())
             }
         }
 

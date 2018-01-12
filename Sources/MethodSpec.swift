@@ -128,7 +128,7 @@ open class MethodSpecBuilder: PoetSpecBuilder, Builder, MethodSpecProtocol {
 
     fileprivate init(name: String) {
         // init is a reserved word but is ok as a method name
-        let cleanName = name == "init" || name == "init?"  ? name : name.cleaned(.paramName)
+        let cleanName = name == "init" || name == "init?"  ? name : name.cleaned(.camelCaseName)
         super.init(name: cleanName, construct: MethodSpecBuilder.defaultConstruct)
     }
 

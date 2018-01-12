@@ -18,7 +18,8 @@ extension String
 {
     public enum Case {
         case typeName
-        case paramName
+        case camelCaseName          // Variables, method declarations, arguments
+        case unescapedCamelCaseName // Can be used for unescaped param names in methods
         case uppercasedName
     }
 }
@@ -28,12 +29,15 @@ extension StringProtocol {
         switch stringCase {
         case .typeName:
             return ReservedWords.safeWord(PoetUtil.stripSpaceAndPunctuation(self).joined(separator: ""))
-        case .paramName:
+        case .camelCaseName, .unescapedCamelCaseName:
             let cleanedNameChars = PoetUtil.stripSpaceAndPunctuation(self, escapeUppercase: true).joined(separator: "")
             if cleanedNameChars == cleanedNameChars.uppercased() {
                 return cleanedNameChars.lowercased()
             }
-            return PoetUtil.lowercaseFirstChar(cleanedNameChars)
+            if case .unescapedCamelCaseName = stringCase {
+                return PoetUtil.lowercaseFirstChar(cleanedNameChars)
+            }
+            return ReservedWords.safeWord(PoetUtil.lowercaseFirstChar(cleanedNameChars))
         case .uppercasedName:
             let cleanedNameChars = PoetUtil.stripSpaceAndPunctuation(self).joined(separator: "")
             return ReservedWords.safeWord(cleanedNameChars.uppercased())
