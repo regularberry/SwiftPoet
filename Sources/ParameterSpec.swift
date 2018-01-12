@@ -60,7 +60,7 @@ open class ParameterSpecBuilder: PoetSpecBuilder, Builder, ParameterSpecProtocol
         self.label = label
         self.type = type
         let requiredConstruct = construct == nil || construct! != .mutableParam ? ParameterSpecBuilder.defaultConstruct : construct!
-        super.init(name: name.cleaned(.paramName), construct: requiredConstruct)
+        super.init(name: name.cleaned(.unescapedCamelCaseName), construct: requiredConstruct)
     }
 
     open func build() -> Result {
