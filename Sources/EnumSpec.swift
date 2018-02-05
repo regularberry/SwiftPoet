@@ -124,4 +124,10 @@ extension EnumSpecBuilder {
         mutatingAdd(imports: toAdd)
         return self
     }
+
+    @discardableResult
+    public func add(nestedType toAdd: TypeSpec) -> Self {
+        mutatingAdd(nestedType: toAdd)
+        return self
+    }
 }

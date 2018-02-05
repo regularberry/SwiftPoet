@@ -13,6 +13,7 @@ public protocol TypeSpecProtocol {
     var fields: [FieldSpec] { get }
     var superType: TypeName? { get }
     var protocols: [TypeName] { get }
+    var nestedTypes: [TypeSpec] { get }
 }
 
 open class TypeSpec: PoetSpec, TypeSpecProtocol {
@@ -20,13 +21,14 @@ open class TypeSpec: PoetSpec, TypeSpecProtocol {
     open let fields: [FieldSpec]
     open let superType: TypeName?
     open let protocols: [TypeName]
+    open let nestedTypes: [TypeSpec]
 
     public init(builder: TypeSpecBuilder) {
         methods = builder.methods
         fields = builder.fields
         superType = builder.superType
         protocols = builder.protocols
-
+        nestedTypes = builder.nestedTypes
         super.init(name: builder.name, construct: builder.construct, modifiers: builder.modifiers, description: builder.description, generatorInfo: builder.generatorInfo, framework: builder.framework, imports: builder.imports)
     }
 
@@ -51,6 +53,7 @@ open class TypeSpec: PoetSpec, TypeSpecProtocol {
         }
     }
 
+    @discardableResult
     open override func emit(to writer: CodeWriter) -> CodeWriter {
         writer.emit(documentationFor: self)
         writer.emit(modifiers: modifiers)
@@ -63,7 +66,13 @@ open class TypeSpec: PoetSpec, TypeSpecProtocol {
         writer.emit(type: .beginStatement)
         writer.emitNewLine()
 
-        var first = true
+        nestedTypes.forEach { nestedType in
+            writer.emitNewLine()
+            nestedType.emit(to: writer)
+            writer.emitNewLine()
+        }
+
+        var first = nestedTypes.count == 0
 
         fields.forEach { spec in
             if !first { writer.emitNewLine() }
@@ -82,7 +91,7 @@ open class TypeSpec: PoetSpec, TypeSpecProtocol {
         }
 
         writer.emit(type: .endStatement)
-        
+
         return writer
     }
 }
@@ -92,6 +101,7 @@ open class TypeSpecBuilder: PoetSpecBuilder, TypeSpecProtocol {
     open fileprivate(set) var fields = [FieldSpec]()
     open fileprivate(set) var protocols = [TypeName]()
     open fileprivate(set) var superType: TypeName? = nil
+    open fileprivate(set) var nestedTypes = [TypeSpec]()
 
     public override init(name: String, construct: Construct) {
         super.init(name: name.cleaned(.typeName), construct: construct)
@@ -137,5 +147,11 @@ open class TypeSpecBuilder: PoetSpecBuilder, TypeSpecProtocol {
 
     internal func mutatingAdd(superType toAdd: TypeName) {
         self.superType = toAdd
+    }
+
+    internal func mutatingAdd(nestedType toAdd: TypeSpec) {
+        if !nestedTypes.contains(toAdd) {
+            nestedTypes.append(toAdd)
+        }
     }
 }
