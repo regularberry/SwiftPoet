@@ -141,6 +141,32 @@ class NestedTypeTest: XCTestCase {
         XCTAssertEqual(result, enumSpec.toString())
     }
 
+    func testExtensionNestedType() {
+        let eb = ExtensionSpec.builder(for: "TopLevelExtension")
+
+        let ncb = ClassSpec.builder(for: "NestedClass")
+        ncb.add(description: "This is a test nested class")
+        ncb.add(fields: [FieldSpec.builder(for: "v1", type: TypeName.IntegerType, construct: .mutableParam).build()])
+        eb.add(nestedType: ncb.build())
+
+        let extensionSpec = eb.build()
+
+        let result = """
+        extension TopLevelExtension {
+        
+            /**
+                This is a test nested class
+            */
+            class NestedClass {
+                var v1: Int
+            }
+        
+        }
+        """
+
+        XCTAssertEqual(result, extensionSpec.toString())
+    }
+
     func test2NestedTypes() {
         let cb = ClassSpec.builder(for: "TopLevelClass")
 
