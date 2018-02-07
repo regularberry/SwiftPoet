@@ -10,12 +10,12 @@ import Foundation
 
 public struct PoetUtil {
     fileprivate static let template = "^^^^"
-    fileprivate static let spacePunctuationPattern = "\\s|_|-|\\[|\\]"
+    fileprivate static let spacePunctuationRegexPattern = "\\s|_|-|\\[|\\]"
     fileprivate static let spaceDotsPunctuationRegexPattern = "\\s|_|\\.|-|\\[|\\]"
 
     fileprivate static var spaceAndPunctuationRegex: NSRegularExpression? {
         do {
-            return try NSRegularExpression(pattern: PoetUtil.spacePunctuationPattern, options: .anchorsMatchLines)
+            return try NSRegularExpression(pattern: PoetUtil.spacePunctuationRegexPattern, options: .anchorsMatchLines)
         } catch {
             return nil
         }
