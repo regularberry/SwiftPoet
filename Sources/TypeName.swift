@@ -13,9 +13,8 @@ import Foundation
     Unlike basic TypeName the keyword can have dots to define context in which type is defined `Type.NestedType`.
     So, make sure any dots are escaped from keywords before. */
 open class TypeReferenceName: TypeName {
-    // Combination
-    public convenience init(typesChain: [String], attributes: [String] = [], optional: Bool = false, imports: [String]? = nil)
-    {
+    // Chain of types to define the whole context, param `typesChain` will be represented as nested types chain
+    public convenience init(typesChain: [String], attributes: [String] = [], optional: Bool = false, imports: [String]? = nil) {
         self.init(keyword: typesChain.joined(separator: "."), attributes: attributes, optional: optional, imports: imports)
     }
 
