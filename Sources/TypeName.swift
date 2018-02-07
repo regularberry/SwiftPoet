@@ -8,6 +8,21 @@
 
 import Foundation
 
+
+/** Can be used in places when you reference type from specific namespace, nested type, etc.
+    Unlike basic TypeName the keyword can have dots to define context in which type is defined `Type.NestedType`.
+    So, make sure any dots are escaped from keywords before. */
+open class TypeReferenceName: TypeName {
+    // Chain of types to define the whole context, param `typesChain` will be represented as nested types chain
+    public convenience init(typesChain: [String], attributes: [String] = [], optional: Bool = false, imports: [String]? = nil) {
+        self.init(keyword: typesChain.joined(separator: "."), attributes: attributes, optional: optional, imports: imports)
+    }
+
+    internal override class func clean(_ keyword: String) -> String {
+        return keyword.cleaned(.typeReferenceName)
+    }
+}
+
 open class TypeName: Importable {
     open let keyword: String
     open let attributes: [String]
@@ -26,12 +41,14 @@ open class TypeName: Importable {
     open let optional: Bool
     open var imports: Set<String>
 
-    public convenience init<T: StringProtocol>(keyword: T, attributes: [String] = [], optional: Bool = false, imports: [String]? = nil)
+    public required convenience init<T: StringProtocol>(keyword: T, attributes: [String] = [], optional: Bool = false, imports: [String]? = nil)
     {
         self.init(keyword: String(keyword), attributes: attributes, optional: optional, imports: imports)
     }
 
-    public init(keyword: String, attributes: [String] = [], optional: Bool = false, imports: [String]? = nil) {
+    public required init(keyword: String, attributes: [String] = [], optional: Bool = false, imports: [String]? = nil) {
+        let metatype = type(of: self) // to handle some swift compiler errors
+
         let trimmedKeyWord = keyword.trimmingCharacters(in: .whitespaces)
         let nonOptionalKeyword: String
         let stringOptional: Bool
@@ -63,10 +80,10 @@ open class TypeName: Importable {
             let returnType = nonOptionalKeyword[chars.index(after: returnRange.upperBound)..<chars.endIndex]
 
             let leftInnerTypes = inputs.components(separatedBy: ",").map {
-                TypeName(keyword: $0)
+                metatype.init(keyword: $0)
             }
 
-            self.innerTypes = leftInnerTypes + [TypeName(keyword: returnType)]
+            self.innerTypes = leftInnerTypes + [metatype.init(keyword: returnType)]
             self.keyword = "Closure"
 
         } else if TypeName.containsGenerics(nonOptionalKeyword) {
@@ -90,9 +107,9 @@ open class TypeName: Importable {
             let generics = nonOptionalKeyword[genericsRange]
 
             self.innerTypes = generics.components(separatedBy: ",").map {
-                TypeName(keyword: $0)
+                metatype.init(keyword: $0)
             }
-            self.keyword = keywordStr.cleaned(.typeName)
+            self.keyword = metatype.clean(String(keywordStr))
 
         } else if TypeName.isDictionary(nonOptionalKeyword) {
             let chars = nonOptionalKeyword
@@ -100,22 +117,22 @@ open class TypeName: Importable {
             let splitIndex = nonOptionalKeyword.range(of: ":")!.lowerBound
 
             self.innerTypes = [
-                TypeName(keyword: nonOptionalKeyword[chars.index(after: chars.startIndex)..<splitIndex]),
-                TypeName(keyword: nonOptionalKeyword[chars.index(after: splitIndex)..<endIndex])
+                metatype.init(keyword: nonOptionalKeyword[chars.index(after: chars.startIndex)..<splitIndex]),
+                metatype.init(keyword: nonOptionalKeyword[chars.index(after: splitIndex)..<endIndex])
             ]
-            self.keyword = "Dictionary".cleaned(.typeName)
+            self.keyword = "Dictionary"
             
         } else if TypeName.isArray(nonOptionalKeyword) {
             let chars = nonOptionalKeyword
             let endIndex = chars.index(before: chars.endIndex)
             let range = chars.index(after: chars.startIndex)..<endIndex
 
-            self.innerTypes = [TypeName(keyword: nonOptionalKeyword[range])]
-            self.keyword = "Array".cleaned(.typeName)
+            self.innerTypes = [metatype.init(keyword: nonOptionalKeyword[range])]
+            self.keyword = "Array"
 
         } else {
             self.innerTypes = []
-            self.keyword = nonOptionalKeyword.cleaned(.typeName)
+            self.keyword = metatype.clean(nonOptionalKeyword)
         }
 
         self.optional = optional || stringOptional
@@ -127,6 +144,10 @@ open class TypeName: Importable {
         leftInnerType?.collectImports().forEach { collectedImports.insert($0) }
         rightInnerType?.collectImports().forEach { collectedImports.insert($0) }
         return collectedImports
+    }
+
+    internal class func clean(_ keyword: String) -> String {
+        return keyword.cleaned(.typeName)
     }
 
     internal static func containsGenerics(_ keyword: String) -> Bool {

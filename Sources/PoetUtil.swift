@@ -10,11 +10,20 @@ import Foundation
 
 public struct PoetUtil {
     fileprivate static let template = "^^^^"
-    fileprivate static let regexPattern = "\\s|_|\\.|-|\\[|\\]"
-    
+    fileprivate static let spacePunctuationRegexPattern = "\\s|_|-|\\[|\\]"
+    fileprivate static let spaceDotsPunctuationRegexPattern = "\\s|_|\\.|-|\\[|\\]"
+
     fileprivate static var spaceAndPunctuationRegex: NSRegularExpression? {
         do {
-            return try NSRegularExpression(pattern: PoetUtil.regexPattern, options: .anchorsMatchLines)
+            return try NSRegularExpression(pattern: PoetUtil.spacePunctuationRegexPattern, options: .anchorsMatchLines)
+        } catch {
+            return nil
+        }
+    }
+
+    fileprivate static var spaceDotsAndPunctuationRegex: NSRegularExpression? {
+        do {
+            return try NSRegularExpression(pattern: PoetUtil.spaceDotsPunctuationRegexPattern, options: .anchorsMatchLines)
         } catch {
             return nil
         }
@@ -26,10 +35,10 @@ public struct PoetUtil {
         }
     }
 
-    internal static func stripSpaceAndPunctuation<T: StringProtocol>(_ name: T, escapeUppercase: Bool = false ) -> [String] {
+    internal static func stripSpaceAndPunctuation<T: StringProtocol>(_ name: T, escapeDots: Bool = true, escapeUppercase: Bool = false ) -> [String] {
         let nameStr = String(name)
 
-        guard let regex = spaceAndPunctuationRegex else {
+        guard let regex = escapeDots ? spaceDotsAndPunctuationRegex : spaceAndPunctuationRegex else {
             return [nameStr]
         }
 

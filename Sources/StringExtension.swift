@@ -18,6 +18,11 @@ extension String
 {
     public enum Case {
         case typeName
+
+        /*  Swift allows dot notation when referencing types, e.g. `let value: Type.NestedType`
+            but you have to make sure escape any of the combined type from dots by yourself */
+        case typeReferenceName
+
         case camelCaseName          // Variables, method declarations, arguments
         case unescapedCamelCaseName // Can be used for unescaped param names in methods
         case uppercasedName
@@ -29,6 +34,8 @@ extension StringProtocol {
         switch stringCase {
         case .typeName:
             return ReservedWords.safeWord(PoetUtil.stripSpaceAndPunctuation(self).joined(separator: ""))
+        case .typeReferenceName:
+            return ReservedWords.safeWord(PoetUtil.stripSpaceAndPunctuation(self, escapeDots: false).joined(separator: ""))
         case .camelCaseName, .unescapedCamelCaseName:
             let cleanedNameChars = PoetUtil.stripSpaceAndPunctuation(self, escapeUppercase: true).joined(separator: "")
             if cleanedNameChars == cleanedNameChars.uppercased() {
