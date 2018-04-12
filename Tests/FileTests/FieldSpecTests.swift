@@ -44,6 +44,24 @@ var hashValue: Int {
         XCTAssertEqual(result, field.toString())
     }
 
+    func testConstantProperty() {
+        /*
+        let urlString: String = "https://www.gilt.com"
+         */
+        let field = FieldSpec.builder(for: "urlString", type: TypeName.StringType, construct: .field)
+                .add(initializer: CodeBlock.builder()
+                        .add(literal: "\"https://www.gilt.com\"")
+                        .build())
+                .add(parentType: .`class`)
+                .build()
+
+        let result = """
+let urlString: String = "https://www.gilt.com"
+"""
+
+        XCTAssertEqual(result, field.toString())
+    }
+
     func testComputedLongProperty() {
         /*
          var hashValue: Int64 {
