@@ -109,7 +109,7 @@ open class FieldSpec: PoetSpec, FieldSpecType {
         }
 
         if let initializer = initializer {
-            if construct == .mutableField {
+            if construct == .field || construct == .mutableField {
                 cbBuilder.add(literal: "=")
                 cbBuilder.add(objects: initializer.emittableObjects)
             } else if construct == .mutableParam {
