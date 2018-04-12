@@ -30,6 +30,30 @@ class MethodSpecTests: XCTestCase {
         XCTAssertEqual("func test()", method.toString())
     }
 
+    func testDefaultParameterMethod() {
+        let mb = MethodSpec.builder(for: "Test")
+        mb.add(parentType: .method)
+
+        let pb = ParameterSpec.builder(for: "name", type: TypeName.StringType)
+                .add(initializer: CodeBlock.builder()
+                        .add(literal: "\"Test\"")
+                        .build()
+                ).build()
+
+        mb.add(parameter: pb)
+
+        let method = mb.build()
+
+        let result = """
+/**
+    :param:    name
+*/
+func test(name: String = "Test") {
+}
+"""
+        XCTAssertEqual(result, method.toString())
+    }
+
     func testProtocolMethodOneParam() {
         let mb = MethodSpec.builder(for: "Test")
         mb.add(parentType: .protocol)

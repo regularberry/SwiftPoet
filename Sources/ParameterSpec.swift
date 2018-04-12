@@ -16,12 +16,14 @@ public protocol ParameterSpecProtocol {
 open class ParameterSpec: PoetSpec, ParameterSpecProtocol {
     open let label: String?
     open let type: TypeName
+    open let initializer: CodeBlock?
 
     fileprivate init(builder: ParameterSpecBuilder) {
         self.label = builder.label
         self.type = builder.type
+        self.initializer = builder.initializer
         super.init(name: builder.name, construct: builder.construct, modifiers: builder.modifiers,
-                   description: builder.description, generatorInfo: builder.generatorInfo, framework: builder.framework, imports: builder.imports)
+                description: builder.description, generatorInfo: builder.generatorInfo, framework: builder.framework, imports: builder.imports)
     }
 
     open static func builder(for name: String, label: String? = nil, type: TypeName, construct: Construct? = nil) -> ParameterSpecBuilder {
@@ -44,6 +46,11 @@ open class ParameterSpec: PoetSpec, ParameterSpecProtocol {
         cbBuilder.add(literal: name)
         cbBuilder.add(literal: ":", trimString: true)
         cbBuilder.add(literal: type)
+
+        if let initializer = initializer {
+            cbBuilder.add(literal: "=")
+            cbBuilder.add(objects: initializer.emittableObjects)
+        }
         writer.emit(codeBlock: cbBuilder.build())
         return writer
     }
@@ -52,6 +59,7 @@ open class ParameterSpec: PoetSpec, ParameterSpecProtocol {
 open class ParameterSpecBuilder: PoetSpecBuilder, Builder, ParameterSpecProtocol {
     public typealias Result = ParameterSpec
     open static let defaultConstruct: Construct = .param
+    open fileprivate(set) var initializer: CodeBlock? = nil
 
     open let label: String?
     open let type: TypeName
@@ -71,6 +79,12 @@ open class ParameterSpecBuilder: PoetSpecBuilder, Builder, ParameterSpecProtocol
 
 // MARK: Chaining
 extension ParameterSpecBuilder {
+
+    @discardableResult
+    public func add(initializer toAdd: CodeBlock) -> Self {
+        self.initializer = toAdd
+        return self
+    }
 
     @discardableResult
     public func add(modifier toAdd: Modifier) -> Self {
