@@ -332,7 +332,7 @@ extension CodeWriter {
             inheritanceValues.append(contentsOf: protocols.map{ $0.literalValue() })
         }
 
-        let stringValues = inheritanceValues.flatMap{$0}
+        let stringValues = inheritanceValues.compactMap{$0}
 
         if stringValues.count > 0 {
             _out.append(contentsOf: ": ")
