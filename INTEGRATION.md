@@ -14,7 +14,7 @@ Macintosh|macOS 10.13|macOS 10.11
 Apple TV|tvOS 11.0|tvOS 9.0
 Apple Watch|watchOS 4.0|watchOS 2.0
 
-SwiftPoet uses **Swift 4.0** and **requires Xcode 9.0** to compile.
+SwiftPoet uses **Swift 4.1** and **requires Xcode 9.3** to compile.
 
 ### Options for integration
 
@@ -44,12 +44,12 @@ Within to your project’s root directory, Carthage-based projects will store a 
 To integrate SwiftPoet in your workspace, you would start by adding the following line to the `Cartfile`:
 
 ```
-github "gilt/SwiftPoet" ~> 1.3.0
+github "gilt/SwiftPoet" ~> 2.0.0
 ```
 
-This specifies that Carthage use the latest version of SwiftPoet that is API-compatible with 1.3.0, i.e. any 1.3.*x* version.
+This specifies that Carthage use the latest version of SwiftPoet that is API-compatible with 2.0.0, i.e. any 2.0.*x* version.
 
-**Note:** Be sure to check the [latest releases](https://github.com/gilt/SwiftPoet/releases); there may be a newer version than 1.3.0 that is no longer API-compatible.
+**Note:** Be sure to check the [latest releases](https://github.com/gilt/SwiftPoet/releases); there may be a newer version than 2.0.0 that is no longer API-compatible.
 
 ### 2. Download SwiftPoet using Carthage
 
