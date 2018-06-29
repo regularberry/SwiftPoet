@@ -46,7 +46,9 @@ class MethodSpecTests: XCTestCase {
 
         let result = """
 /**
-    :param:    name
+    - Parameters:
+
+      - name
 */
 func test(name: String = "Test") {
 }
@@ -66,7 +68,8 @@ func test(name: String = "Test") {
 
         let result =
         "/**\n" +
-        "    :param:    name\n" +
+        "    - Parameters:\n\n" +
+        "      - name\n" +
         "*/\n" +
         "func test(name: String) -> String"
 
@@ -94,10 +97,11 @@ func test(name: String = "Test") {
 
         let result =
         "/**\n" +
-        "    :param:    name\n\n" +
-        "    :param:    age\n\n" +
-        "    :param:    homeOwner\n\n" +
-        "    :param:    petName\n" +
+        "    - Parameters:\n\n" +
+        "      - name\n\n" +
+        "      - age\n\n" +
+        "      - homeOwner\n\n" +
+        "      - petName\n" +
         "*/\n" +
         "func buildPerson(name: String, age: Int, homeOwner: Bool, petName: String?) -> Person"
 
@@ -124,7 +128,8 @@ func test(name: String = "Test") {
         "/**\n" +
         "    This is a test description\n" +
         "\n" +
-        "    :param:    name The name of the test\n" +
+        "    - Parameters:\n\n" +
+        "      - name: The name of the test\n" +
         "*/\n" +
         "func test(name: String) -> String"
 
@@ -183,7 +188,8 @@ func test(name: String = "Test") {
 
         let result =
         "/**\n" +
-        "    :param:    name\n" +
+        "    - Parameters:\n\n" +
+        "      - name\n" +
         "*/\n" +
         "func test(name: String) -> String {\n" +
         "    return name\n" +
@@ -210,7 +216,8 @@ func test(name: String = "Test") {
 
         let result =
         "/**\n" +
-            "    :param:    name\n" +
+            "    - Parameters:\n\n" +
+            "      - name\n" +
             "*/\n" +
             "func test(name: String) -> String {\n" +
             "    return name\n" +
@@ -255,9 +262,10 @@ func test(name: String = "Test") {
 
         let result =
         "/**\n" +
-        "    :param:    lhs\n" +
+        "    - Parameters:\n\n" +
+        "      - lhs\n" +
         "\n" +
-        "    :param:    rhs\n" +
+        "      - rhs\n" +
         "*/\n" +
         "static func ==(lhs: GridPoint, rhs: GridPoint) -> Bool {\n" +
         "    return lhs.x == rhs.x && lhs.y == rhs.y\n" +
