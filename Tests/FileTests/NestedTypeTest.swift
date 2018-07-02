@@ -81,7 +81,9 @@ class NestedTypeTest: XCTestCase {
                 var v1: Int
         
                 /**
-                    :param:    v1
+                    - Parameters:
+        
+                      - v1
                 */
                 internal init(v1: Int) {
                     
@@ -93,7 +95,9 @@ class NestedTypeTest: XCTestCase {
             var v: String
         
             /**
-                :param:    v
+                - Parameters:
+        
+                  - v
             */
             internal init(v: String) {
                 

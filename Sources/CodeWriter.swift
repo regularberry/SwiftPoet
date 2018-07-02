@@ -194,19 +194,20 @@ extension CodeWriter {
         if indentedDocs != nil {
             specDoc.append(indentedDocs!)
         }
-
-        var first = true
-        method.parameters.forEach { p in
-            if first && method.description != nil {
+    
+        if method.parameters.count > 0 {
+            if method.description != nil {
                 specDoc.append("\n")
-            } else if !first {
-                specDoc.append("\n\n")
             }
-            first = false
+            specDoc.append("- Parameters:".byIndenting(level: indentLevel + 1))
+        }
+        
+        method.parameters.forEach { p in
+            specDoc.append("\n\n")
 
-            var paramDoc = ":param:    \(p.name)"
+            var paramDoc = "  - \(p.name)"
             if let desc = p.description {
-                paramDoc.append(" \(desc)")
+                paramDoc.append(": \(desc)")
             }
             specDoc.append(paramDoc.byIndenting(level: indentLevel + 1))
         }
