@@ -17,11 +17,11 @@ public protocol TypeSpecProtocol {
 }
 
 open class TypeSpec: PoetSpec, TypeSpecProtocol {
-    open let methods: [MethodSpec]
-    open let fields: [FieldSpec]
-    open let superType: TypeName?
-    open let protocols: [TypeName]
-    open let nestedTypes: [TypeSpec]
+    public let methods: [MethodSpec]
+    public let fields: [FieldSpec]
+    public let superType: TypeName?
+    public let protocols: [TypeName]
+    public let nestedTypes: [TypeSpec]
 
     public init(builder: TypeSpecBuilder) {
         methods = builder.methods

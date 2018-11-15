@@ -9,22 +9,22 @@
 import Foundation
 
 open class ProtocolSpec: TypeSpec {
-    open static let fieldModifiers: [Modifier] = [.Static]
-    open static let methodModifiers: [Modifier] = [.Static]
-    open static let asMemberModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private]
+    public static let fieldModifiers: [Modifier] = [.Static]
+    public static let methodModifiers: [Modifier] = [.Static]
+    public static let asMemberModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private]
 
     fileprivate init(builder: ProtocolSpecBuilder) {
         super.init(builder: builder as TypeSpecBuilder)
     }
 
-    open static func builder(for name: String) -> ProtocolSpecBuilder {
+    public static func builder(for name: String) -> ProtocolSpecBuilder {
         return ProtocolSpecBuilder(name: name)
     }
 }
 
 open class ProtocolSpecBuilder: TypeSpecBuilder, Builder {
     public typealias Result = ProtocolSpec
-    open static let defaultConstruct: Construct = .protocol
+    public static let defaultConstruct: Construct = .protocol
 
     public init(name: String) {
         super.init(name: name, construct: ProtocolSpecBuilder.defaultConstruct)

@@ -9,22 +9,22 @@
 import Foundation
 
 open class StructSpec: TypeSpec {
-    open static let fieldModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private, .Static]
-    open static let methodModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private, .Static, .Mutating, .Throws]
-    open static let asMemberModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private]
+    public static let fieldModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private, .Static]
+    public static let methodModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private, .Static, .Mutating, .Throws]
+    public static let asMemberModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private]
 
     fileprivate init(builder: StructSpecBuilder) {
         super.init(builder: builder as TypeSpecBuilder)
     }
 
-    open static func builder(for name: String) -> StructSpecBuilder {
+    public static func builder(for name: String) -> StructSpecBuilder {
         return StructSpecBuilder(name: name)
     }
 }
 
 open class StructSpecBuilder: TypeSpecBuilder, Builder {
     public typealias Result = StructSpec
-    open static let defaultConstruct: Construct = .struct
+    public static let defaultConstruct: Construct = .struct
     fileprivate var includeInit: Bool = false
 
     public init(name: String) {

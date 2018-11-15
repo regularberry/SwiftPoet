@@ -20,14 +20,14 @@ public protocol PoetSpecType {
 }
 
 open class PoetSpec: PoetSpecType, Emitter, Importable {
-    open let name: String
-    open let construct: Construct
-    open let modifiers: Set<Modifier>
-    open let description: String?
-    open let generatorInfo: String?
-    open let framework: String?
-    open let imports: Set<String>
-    open let key: UUID // Unique key for equality checking
+    public let name: String
+    public let construct: Construct
+    public let modifiers: Set<Modifier>
+    public let description: String?
+    public let generatorInfo: String?
+    public let framework: String?
+    public let imports: Set<String>
+    public let key: UUID // Unique key for equality checking
 
     public init(name: String, construct: Construct, modifiers: Set<Modifier>, description: String?, generatorInfo: String?, framework: String?, imports: Set<String>) {
         self.name = name
@@ -70,8 +70,8 @@ extension PoetSpec: Hashable {
 }
 
 open class PoetSpecBuilder: PoetSpecType {
-    open let name: String
-    open let construct: Construct
+    public let name: String
+    public let construct: Construct
     open fileprivate(set) var modifiers = Set<Modifier>()
     open fileprivate(set) var description: String? = nil
     open fileprivate(set) var generatorInfo: String? = nil

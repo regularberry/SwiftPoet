@@ -9,22 +9,22 @@
 import Foundation
 
 open class ExtensionSpec: TypeSpec {
-    open static let fieldModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private, .Static, .Final, .Override, .Required]
-    open static let methodModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private, .Static, .Final, .Klass, .Throws, .Convenience, .Override, .Required]
-    open static let asMemberModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private]
+    public static let fieldModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private, .Static, .Final, .Override, .Required]
+    public static let methodModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private, .Static, .Final, .Klass, .Throws, .Convenience, .Override, .Required]
+    public static let asMemberModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private]
 
     fileprivate init(builder: ExtensionSpecBuilder) {
         super.init(builder: builder as TypeSpecBuilder)
     }
 
-    open static func builder(for name: String) -> ExtensionSpecBuilder {
+    public static func builder(for name: String) -> ExtensionSpecBuilder {
         return ExtensionSpecBuilder(name: name)
     }
 }
 
 open class ExtensionSpecBuilder: TypeSpecBuilder, Builder {
     public typealias Result = ExtensionSpec
-    open static let defaultConstruct: Construct = .extension
+    public static let defaultConstruct: Construct = .extension
 
     public init(name: String) {
         super.init(name: name, construct: ExtensionSpecBuilder.defaultConstruct)

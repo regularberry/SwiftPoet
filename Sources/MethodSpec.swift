@@ -18,11 +18,11 @@ public protocol MethodSpecProtocol {
 }
 
 open class MethodSpec: PoetSpec, MethodSpecProtocol {
-    open let typeVariables: [TypeName]
-    open let throwsError: Bool
-    open let returnType: TypeName?
-    open let parameters: [ParameterSpec]
-    open let codeBlock: CodeBlock?
+    public let typeVariables: [TypeName]
+    public let throwsError: Bool
+    public let returnType: TypeName?
+    public let parameters: [ParameterSpec]
+    public let codeBlock: CodeBlock?
     open var parentType: Construct?
 
     fileprivate init(builder: MethodSpecBuilder) {
@@ -37,7 +37,7 @@ open class MethodSpec: PoetSpec, MethodSpecProtocol {
                    description: builder.description, generatorInfo: builder.generatorInfo, framework: builder.framework, imports: builder.imports)
     }
 
-    open static func builder(for name: String) -> MethodSpecBuilder {
+    public static func builder(for name: String) -> MethodSpecBuilder {
         return MethodSpecBuilder(name: name)
     }
 
@@ -117,7 +117,7 @@ open class MethodSpec: PoetSpec, MethodSpecProtocol {
 
 open class MethodSpecBuilder: PoetSpecBuilder, Builder, MethodSpecProtocol {
     public typealias Result = MethodSpec
-    open static let defaultConstruct: Construct = .method
+    public static let defaultConstruct: Construct = .method
 
     open fileprivate(set) var typeVariables = [TypeName]()
     open fileprivate(set) var throwsError = false

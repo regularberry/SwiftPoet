@@ -24,9 +24,9 @@ open class TypeReferenceName: TypeName {
 }
 
 open class TypeName: Importable {
-    open let keyword: String
-    open let attributes: [String]
-    open let innerTypes: [TypeName]
+    public let keyword: String
+    public let attributes: [String]
+    public let innerTypes: [TypeName]
 
     // for arrays and dictionaries
     open var leftInnerType: TypeName? {
@@ -38,7 +38,7 @@ open class TypeName: Importable {
         guard innerTypes.count > 1 else { return nil }
         return innerTypes[1]
     }
-    open let optional: Bool
+    public let optional: Bool
     open var imports: Set<String>
 
     public required convenience init<T: StringProtocol>(keyword: T, attributes: [String] = [], optional: Bool = false, imports: [String]? = nil)

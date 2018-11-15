@@ -9,22 +9,22 @@
 import Foundation
 
 open class EnumSpec: TypeSpec {
-    open static let fieldModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private, .Static]
-    open static let methodModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private, .Static, .Throws]
-    open static let asMemberModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private]
+    public static let fieldModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private, .Static]
+    public static let methodModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private, .Static, .Throws]
+    public static let asMemberModifiers: [Modifier] = [.Public, .Internal, .Fileprivate, .Private]
 
     fileprivate init(builder: EnumSpecBuilder) {
         super.init(builder: builder as TypeSpecBuilder)
     }
 
-    open static func builder(for name: String) -> EnumSpecBuilder {
+    public static func builder(for name: String) -> EnumSpecBuilder {
         return EnumSpecBuilder(name: name)
     }
 }
 
 open class EnumSpecBuilder: TypeSpecBuilder, Builder {
     public typealias Result = EnumSpec
-    open static let defaultConstruct: Construct = .enum
+    public static let defaultConstruct: Construct = .enum
 
     fileprivate init(name: String) {
         super.init(name: name, construct: EnumSpecBuilder.defaultConstruct)

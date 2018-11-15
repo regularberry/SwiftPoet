@@ -10,27 +10,27 @@ import Foundation
 
 open class Modifier: NSObject {
 
-    open let rawString: String
+    public let rawString: String
 
     public init(rawString: String) {
         self.rawString = rawString
     }
 
-    open static let Open = Modifier(rawString: "open")
-    open static let Public = Modifier(rawString: "public")
-    open static let Internal = Modifier(rawString: "internal")
-    open static let Fileprivate = Modifier(rawString: "fileprivate")
-    open static let Private = Modifier(rawString: "private")
+    public static let Open = Modifier(rawString: "open")
+    public static let Public = Modifier(rawString: "public")
+    public static let Internal = Modifier(rawString: "internal")
+    public static let Fileprivate = Modifier(rawString: "fileprivate")
+    public static let Private = Modifier(rawString: "private")
 
-    open static let Static = Modifier(rawString: "static")
-    open static let Final = Modifier(rawString: "final")
-    open static let Klass = Modifier(rawString: "class")
+    public static let Static = Modifier(rawString: "static")
+    public static let Final = Modifier(rawString: "final")
+    public static let Klass = Modifier(rawString: "class")
 
-    open static let Mutating = Modifier(rawString: "mutating")
-    open static let Throws = Modifier(rawString: "throws")
-    open static let Convenience = Modifier(rawString: "convenience")
-    open static let Override = Modifier(rawString: "override")
-    open static let Required = Modifier(rawString: "required")
+    public static let Mutating = Modifier(rawString: "mutating")
+    public static let Throws = Modifier(rawString: "throws")
+    public static let Convenience = Modifier(rawString: "convenience")
+    public static let Override = Modifier(rawString: "override")
+    public static let Required = Modifier(rawString: "required")
 
     open override var hashValue: Int {
         return rawString.hashValue
@@ -42,7 +42,7 @@ open class Modifier: NSObject {
     //    case Weak
     //    case Optional
 
-    open static func equivalentAccessLevel(parentModifiers pm: Set<Modifier>, childModifiers cm: Set<Modifier>)
+    public static func equivalentAccessLevel(parentModifiers pm: Set<Modifier>, childModifiers cm: Set<Modifier>)
         -> Bool
     {
         let parentAccessLevel = Modifier.accessLevel(pm)
@@ -69,7 +69,7 @@ open class Modifier: NSObject {
         return false
     }
 
-    open static func accessLevel(_ modifiers: Set<Modifier>)
+    public static func accessLevel(_ modifiers: Set<Modifier>)
         -> Modifier
     {
         if modifiers.contains(.Private) {

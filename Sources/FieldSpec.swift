@@ -17,8 +17,8 @@ public protocol FieldSpecType {
 }
 
 open class FieldSpec: PoetSpec, FieldSpecType {
-    open let type: TypeName?
-    open let initializer: CodeBlock?
+    public let type: TypeName?
+    public let initializer: CodeBlock?
     open var parentType: Construct?
     open var associatedValues: [TypeName]?
     open var nameCase: String.Case?
@@ -35,7 +35,7 @@ open class FieldSpec: PoetSpec, FieldSpecType {
                    imports: builder.imports)
     }
 
-    open static func builder(for name: String, type: TypeName? = nil, construct: Construct? = nil) -> FieldSpecBuilder {
+    public static func builder(for name: String, type: TypeName? = nil, construct: Construct? = nil) -> FieldSpecBuilder {
         return FieldSpecBuilder(name: name, type: type, construct: construct)
     }
 
@@ -155,7 +155,7 @@ open class FieldSpecBuilder: PoetSpecBuilder, Builder, FieldSpecType {
     
     public typealias Result = FieldSpec
 
-    open let type: TypeName?
+    public let type: TypeName?
     open fileprivate(set) var initializer: CodeBlock? = nil
     open var parentType: Construct?
     open var associatedValues: [TypeName]?

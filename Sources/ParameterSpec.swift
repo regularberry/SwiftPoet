@@ -14,9 +14,9 @@ public protocol ParameterSpecProtocol {
 }
 
 open class ParameterSpec: PoetSpec, ParameterSpecProtocol {
-    open let label: String?
-    open let type: TypeName
-    open let initializer: CodeBlock?
+    public let label: String?
+    public let type: TypeName
+    public let initializer: CodeBlock?
 
     fileprivate init(builder: ParameterSpecBuilder) {
         self.label = builder.label
@@ -26,7 +26,7 @@ open class ParameterSpec: PoetSpec, ParameterSpecProtocol {
                 description: builder.description, generatorInfo: builder.generatorInfo, framework: builder.framework, imports: builder.imports)
     }
 
-    open static func builder(for name: String, label: String? = nil, type: TypeName, construct: Construct? = nil) -> ParameterSpecBuilder {
+    public static func builder(for name: String, label: String? = nil, type: TypeName, construct: Construct? = nil) -> ParameterSpecBuilder {
         return ParameterSpecBuilder(name: name, label: label, type: type, construct: construct)
     }
 
@@ -58,11 +58,11 @@ open class ParameterSpec: PoetSpec, ParameterSpecProtocol {
 
 open class ParameterSpecBuilder: PoetSpecBuilder, Builder, ParameterSpecProtocol {
     public typealias Result = ParameterSpec
-    open static let defaultConstruct: Construct = .param
+    public static let defaultConstruct: Construct = .param
     open fileprivate(set) var initializer: CodeBlock? = nil
 
-    open let label: String?
-    open let type: TypeName
+    public let label: String?
+    public let type: TypeName
 
     fileprivate init(name: String, label: String? = nil, type: TypeName, construct: Construct? = nil) {
         self.label = label
